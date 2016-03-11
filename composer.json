@@ -1,11 +1,23 @@
 {
-    "name": "adrien/mvc",
+    "name": "AdrienRedon/relaxapic",
     "description": "MVC",
     "license": "MIT",
     "authors": [
         {
             "name": "Adrien REDON",
             "email": "redon.adrien@gmail.com"
+        },
+        {
+            "name": "Pierre-Adrien MAISON",
+            "email": "maison.pierre.adrien@gmail.com"
+        },
+        {
+            "name": "Nicolas LEBRUN",
+            "email": "TODO@gmail.com"
+        },
+        {
+            "name": "Hugo DUFAITRE",
+            "email": "TODO@gmail.com"
         }
     ],
     "require": {},
