@@ -4,6 +4,4 @@
  * List of routes
  */
 
-$router->get('/', function() {
-    echo 'Hello World!';
-});
+$router->get('/', 'PageController@index');

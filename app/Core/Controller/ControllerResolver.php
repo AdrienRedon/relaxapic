@@ -4,6 +4,7 @@ namespace App\Core\Controller;
 
 use App\Core\DependencyInjection\ContainerInterface;
 use App\Core\DependencyInjection\ContainerAwareInterface;
+use App\Core\DependencyInjection\Exception\ServiceNotFoundException;
 use App\Core\Controller\Exception\MethodNotFoundException;
 
 class ControllerResolver
@@ -13,12 +14,6 @@ class ControllerResolver
      * @var ContainerInterface
      */
     protected $container;
-
-    /**
-     * Name
-     * @var string
-     */
-    protected $name;
 
     public function __construct(ContainerInterface $container)
     {
@@ -34,7 +29,19 @@ class ControllerResolver
     {
         $controllerParams = explode('@', $name);
 
-        $controller = $this->container->resolve('App\Controller\\' . $controllerParams[0]);
+        try {  
+            $controller = $this->container->resolve('App\Controller\\' . $controllerParams[0]);
+        } catch (ServiceNotFoundException $e) {
+            if (file_exists(ROOT . '/app/Controller/' . $controllerParams[0] . '.php')) {
+                include_once(ROOT . '/app/Controller/' . $controllerParams[0] . '.php');
+                $controllerName = 'App\Controller\\' . $controllerParams[0];
+                $controller = new $controllerName();
+                $this->container->register($controllerName, $controller);
+            } else {
+                die(ROOT . '/app/Controller/' . $controllerParams[0] . '.php');
+                throw $e; 
+            }
+        }
 
         if (!method_exists($controller, $controllerParams[1])) {
             throw new MethodNotFoundException($controllerParams[1]);
