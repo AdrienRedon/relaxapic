@@ -1,19 +1,15 @@
 # relaxapic
 CPE Web Project
 
-Installation
----
+## Installation
 
 To install:
 
-git clone https://github.com/AdrienRedon/relaxapic.git
-cd relaxapic
-composer install
+`git clone https://github.com/AdrienRedon/relaxapic.git && cd relaxapic && composer install`
 
-Documentation
----
+## Documentation
 
-Folder locations:
+### Folder locations:
 - for the assets: /public
 - for the controllers: app/Controller
 - for the models: app/Model
@@ -21,14 +17,13 @@ Folder locations:
 - for the validators: app/Validator
 - for utilities classes: app/Libs
 
-Naming conventions:
+### Naming conventions:
 - for a controller: {controllerName}Controller.php
 - for a model: {modelName}.php
 - for a view: {controllerMethodName}.tpl
 - for a validator: {validatorName}Validator.php
 
-Contributors
----
+## Contributors
 
 Adrien REDON
 Hugo DUFAITRE
