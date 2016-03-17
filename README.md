@@ -2,7 +2,7 @@
 CPE Web Project
 
 Installation
-===
+---
 
 To install:
 
@@ -11,7 +11,7 @@ cd relaxapic
 composer install
 
 Documentation
-===
+---
 
 Folder locations:
 - for the assets: /public
@@ -28,7 +28,7 @@ Naming conventions:
 - for a validator: {validatorName}Validator.php
 
 Contributors
-===
+---
 
 Adrien REDON
 Hugo DUFAITRE
