@@ -5,7 +5,11 @@ CPE Web Project
 
 To install:
 
-`git clone https://github.com/AdrienRedon/relaxapic.git && cd relaxapic && composer install`
+```shell
+git clone https://github.com/AdrienRedon/relaxapic.git
+cd relaxapic
+composer install
+```
 
 ## Documentation
 
