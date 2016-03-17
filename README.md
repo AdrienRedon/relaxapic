@@ -29,10 +29,7 @@ composer install
 
 ## Contributors
 
-Adrien REDON
-
-Hugo DUFAITRE
-
-Nicolas LEBRUN
-
-Pierre-Adrien MAISON 
+- Adrien REDON
+- Hugo DUFAITRE
+- Nicolas LEBRUN
+- Pierre-Adrien MAISON 
