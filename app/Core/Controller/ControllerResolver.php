@@ -38,7 +38,6 @@ class ControllerResolver
                 $controller = new $controllerName();
                 $this->container->register($controllerName, $controller);
             } else {
-                die(ROOT . '/app/Controller/' . $controllerParams[0] . '.php');
                 throw $e; 
             }
         }

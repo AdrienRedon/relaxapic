@@ -8,7 +8,7 @@ use App\Core\DependencyInjection\Container;
 use App\Core\Database\MySQLDatabase;
 use App\Core\Config;
 
-define('ROOT', './');
+define('ROOT', '');
 
 class ModelTest extends PHPUnit_Framework_TestCase 
 {
@@ -16,7 +16,7 @@ class ModelTest extends PHPUnit_Framework_TestCase
     {
         $container = new Container();
         $container->register('Database', function() {
-            return new MySQLDatabase(new Config());
+            return new MySQLDatabase(new Config('app'));
         });
         $container->register('App\Model\TestModel', function() use ($container) {
             return new \Test\Model\TestModel($container->resolve('Database'));

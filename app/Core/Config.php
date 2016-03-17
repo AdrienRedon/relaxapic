@@ -9,12 +9,17 @@ class Config
      * @var array
      */
     private $settings = array();
+
     /**
      * Constructor
+     * @param string $path Path to the config file
      */
-    public function __construct()
+    public function __construct($path = null)
     {
-        $this->settings = require (ROOT . '/app/config.php');
+        if ( ! isset($path)) {
+            $path = DIRECTORY_SEPARATOR . 'app';
+        }
+        $this->settings = require (ROOT . $path . DIRECTORY_SEPARATOR . 'config.php');
     }
     /**
      * Get value from the config

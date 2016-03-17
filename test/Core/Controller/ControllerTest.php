@@ -6,6 +6,8 @@ use \PHPUnit_Framework_TestCase;
 use App\Core\Controller\ControllerResolver;
 use App\Core\DependencyInjection\Container;
 
+define('ROOT', '');
+
 class ControllerTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
