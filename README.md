@@ -5,6 +5,8 @@ CPE Web Project
 
 To install:
 
+You must have composer installed.
+
 ```shell
 git clone https://github.com/AdrienRedon/relaxapic.git
 cd relaxapic
