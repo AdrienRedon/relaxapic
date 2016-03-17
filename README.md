@@ -1,4 +1,4 @@
-# relaxapic
+# Relaxapic
 CPE Web Project
 
 ## Installation
