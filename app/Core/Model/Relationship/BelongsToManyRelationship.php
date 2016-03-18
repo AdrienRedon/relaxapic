@@ -2,7 +2,7 @@
 
 namespace App\Core\Model\Relationship;
 
-class BelongsToManyRelationship
+class BelongsToManyRelationship implements RelationshipInterface
 {
 
 }
