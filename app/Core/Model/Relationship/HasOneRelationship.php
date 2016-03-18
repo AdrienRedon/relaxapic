@@ -2,7 +2,7 @@
 
 namespace App\Core\Model\Relationship;
 
-class HasOneRelationship
+class HasOneRelationship implements RelationshipInterface
 {
 
   protected $relations = array();
