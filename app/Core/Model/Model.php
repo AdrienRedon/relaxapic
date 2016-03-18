@@ -329,7 +329,6 @@ class Model extends ContainerAware
     {
         foreach($this->has_many as $key => $v)
         {
-            var_dump($this->getHasMany($key));
             foreach($this->getHasMany($key) as $k => $item)
             {
                 $item->delete();
