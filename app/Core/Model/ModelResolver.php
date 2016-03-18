@@ -33,8 +33,8 @@ class ModelResolver
         try {
             $model = $this->container->resolve('App\Model\\' . $name);
         } catch (ServiceNotFoundException $e) {
-            if (file_exists(ROOT . '/app/Model/' . $name . '.php')) {
-                include_once(ROOT . '/app/Model/' . $name . '.php');
+            if (file_exists(ROOT . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR .'Model' . DIRECTORY_SEPARATOR . $name . '.php')) {
+                include_once(ROOT . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . $name . '.php');
                 $modelName = 'App\Model\\' . $name;
                 $model = new $modelName($db);
             } else {
