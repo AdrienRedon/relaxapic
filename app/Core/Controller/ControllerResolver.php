@@ -32,9 +32,10 @@ class ControllerResolver
         try {  
             $controller = $this->container->resolve('App\Controller\\' . $controllerParams[0]);
         } catch (ServiceNotFoundException $e) {
-            $filePath = ROOT . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'Controller' . DIRECTORY_SEPARATOR . $controllerParams[0] . '.php';
+            $filePath = ROOT . 'app/Controller/' . $controllerParams[0] . '.php';
             if (file_exists($filePath)) {
                 include_once($filePath);
+
                 $controllerName = 'App\Controller\\' . $controllerParams[0];
                 $controller = new $controllerName();
                 $this->container->register($controllerName, $controller);

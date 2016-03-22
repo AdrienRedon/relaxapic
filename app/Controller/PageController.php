@@ -27,11 +27,24 @@ class PageController extends Controller
 
     public function admin()
     {
-        if ($this->auth->attempt('toto', 'admin')) { // toto : admin
-            echo 'login correct';
+        if ($this->auth->check()) { // toto : admin
+            echo 'vous etes co';
         } else {
-            echo 'login incorrect';
-            $this->view->render();
+            echo 'vous etes pas co';
+        }
+    }
+
+    public function loginForm()
+    {
+    	include(ROOT. 'app/View/Page/FormConnexion.php');
+    }
+
+    public function login()
+    {
+        if ($this->auth->attempt($_POST['login'], $_POST['pass'])) {
+            $this->admin();
+        } else {
+            echo 'login incorrecte';
         }
     }
 }
