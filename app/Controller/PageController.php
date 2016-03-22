@@ -6,8 +6,12 @@ use App\Core\Controller\Controller;
 
 class PageController extends Controller
 {
-    public function index()
+    public function index($person = "World")
     {
-        echo 'Hello World !';
+        if ($this->isAjax()) {
+            die(json_encode(array('ajax' => true)));
+        } else {
+            echo "Hello $person !";
+        }
     }
 }
