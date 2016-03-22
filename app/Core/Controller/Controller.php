@@ -14,7 +14,7 @@ class Controller extends ContainerAware
     {
         $this->setContainer($container);
         $this->view = new View();
-        $this->view->setDirectoryPath('app/View');
+        $this->view->setDirectoryPath('app/View/');
     }
 
     /**

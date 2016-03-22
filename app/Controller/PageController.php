@@ -28,10 +28,9 @@ class PageController extends Controller
     public function admin()
     {
         if ($this->auth->attempt('toto', 'admin')) { // toto : admin
-            echo 'login correct';
+            $this->view->render('Page/admin');
         } else {
-            echo 'login incorrect';
-            $this->view->render();
+            $this->view->render('Page/admin');
         }
     }
 }
