@@ -10,9 +10,15 @@ class Model extends ContainerAware
 {
     /**
      * Implementation of the database interface
-     * @var \Libs\Interfaces\DatabaseInterface
+     * @var App\Core\Database\DatabaseInterface
      */
     protected $db;
+
+    /**
+     * Model Resolver
+     * @var App\Core\Model\ModelResolver
+     */
+    protected $modelResolver;
     
     /**
      * Name of the table to alter
@@ -56,10 +62,11 @@ class Model extends ContainerAware
     /**
      * Constructor
      */ 
-    public function __construct(DatabaseInterface $db, ContainerInterface $container = null)
+    public function __construct(DatabaseInterface $db, ModelResolver $modelResolver, ContainerInterface $container = null)
     {
         $this->setContainer($container);
         $this->db = $db;
+        $this->modelResolver = $modelResolver;
     }
 
     /**
@@ -214,7 +221,7 @@ class Model extends ContainerAware
         foreach($results as $k => $result)
         {
             $class = get_class($this);
-            $object = App::get($class);
+            $object = $this->modelResolver->get($class);
             foreach($result as $attribute => $value)
             {
                 $object->$attribute = $value;
@@ -269,7 +276,7 @@ class Model extends ContainerAware
             }
         }
         $class = get_class($this);
-        $object = App::get($class);
+        $object = $this->modelResolver->get($class);
         foreach($result as $attribute=>$value)
         {
             $object->$attribute = $value;
@@ -387,7 +394,7 @@ class Model extends ContainerAware
         if(!isset($this->$key))
         {
             $field = strtolower(stristr(get_class($this), '\\')) . '_id';
-            $this->$key = App::get($this->has_one[$key])->where([$field => $this->id])->first();
+            $this->$key = $this->modelResolver->get($this->has_one[$key])->where([$field => $this->id])->first();
         }
         return $this->$key;
     }
@@ -402,7 +409,7 @@ class Model extends ContainerAware
         if(!isset($this->$key))
         {
             $field = strtolower(stristr(get_class($this), '\\')) . '_id';
-            $this->$key = App::get($this->has_many[$key])->where([$field => $this->id]);
+            $this->$key = $this->modelResolver->get($this->has_many[$key])->where([$field => $this->id]);
         }
         return $this->$key;
     }
@@ -417,7 +424,7 @@ class Model extends ContainerAware
         if(!isset($this->$key))
         {
             $field = strtolower(stristr(get_class($this), '\\')) . '_id';
-            $this->$key = App::get($this->has_one[$key])->find($this->$field);
+            $this->$key = $this->modelResolver->get($this->has_one[$key])->find($this->$field);
         }
         return $this->$key;
     }
@@ -440,7 +447,7 @@ class Model extends ContainerAware
                 FROM {$this->belongs_to_many[$key][1]} 
                 WHERE $first_field = {$this->id}");
             $this->$key = new Collection();
-            $model = App::get($this->belongs_to_many[$key][0]);
+            $model = $this->modelResolver->get($this->belongs_to_many[$key][0]);
             foreach($ids as $id) 
             {
                 $item = array($model->find($id->$second_field));

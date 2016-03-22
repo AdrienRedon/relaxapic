@@ -4,6 +4,7 @@ use App\Core\Router;
 use App\Core\Route\Exception\NotFoundException;
 use App\Core\Route\Exception\NotAllowedException;
 use App\Core\Controller\ControllerResolver;
+use App\Core\Model\ModelResolver;
 use App\Core\DependencyInjection\Container;
 
 $container = new Container();

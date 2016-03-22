@@ -1,9 +1,12 @@
 <?php
 
-namespace Libs;
+namespace App\Libs;
 
+use App\Core\DependencyInjection\Container;
 use App\Core\Model\ModelResolver;
-use App\Libs\Interfaces\SessionInterface;
+use App\Core\Database\MySQLDatabase;
+use App\Core\Config;
+use App\Libs\SessionInterface;
 
 class Auth 
 {
@@ -12,7 +15,15 @@ class Auth
     const KEY = 'user';
     public function __construct(SessionInterface $session)
     {
-        $modelResolver = new ModelResolver();
+        $container = new Container();
+        $config = new Config('app');
+        $container->register('Database', function() use ($config) {
+            return new MySQLDatabase($config);
+        });
+        $modelResolver = new ModelResolver($container);
+        $container->register('App\Model\User', function() use ($container, $modelResolver) {
+            return new \App\Model\User($container->resolve('Database'), $modelResolver);
+        });
         $this->user = $modelResolver->get('User');
         $this->session = $session;
     }

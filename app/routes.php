@@ -5,4 +5,4 @@
  */
 
 $router->get('/', 'PageController@index');
-$router->get('/:person', 'PageController@index');
+$router->get('/admin', 'PageController@admin');

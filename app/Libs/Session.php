@@ -2,7 +2,7 @@
 
 namespace App\Libs;
 
-use \Libs\interfaces\SessionInterface;
+use App\Libs\SessionInterface;
 
 class Session implements SessionInterface
 {

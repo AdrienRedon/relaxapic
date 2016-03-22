@@ -30,13 +30,15 @@ class ModelResolver
     {
         $db = $this->container->resolve('Database');
 
+        $name = str_replace('App\Model\\', '', $name);
+
         try {
             $model = $this->container->resolve('App\Model\\' . $name);
         } catch (ServiceNotFoundException $e) {
             if (file_exists(ROOT . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR .'Model' . DIRECTORY_SEPARATOR . $name . '.php')) {
                 include_once(ROOT . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . $name . '.php');
                 $modelName = 'App\Model\\' . $name;
-                $model = new $modelName($db);
+                $model = new $modelName($db, $this);
             } else {
                 throw $e;
             }

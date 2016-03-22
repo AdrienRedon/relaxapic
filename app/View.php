@@ -4,7 +4,7 @@ namespace App\Core\View;
 
 use \Smarty;
 
-class View 
+class View
 {
     protected $smarty;
 
