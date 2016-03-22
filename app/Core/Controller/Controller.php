@@ -4,16 +4,16 @@ namespace App\Core\Controller;
 
 use App\Core\DependencyInjection\ContainerAware;
 use App\Core\DependencyInjection\ContainerInterface;
-use \Smarty;
+use App\Core\View\View;
 
 class Controller extends ContainerAware
 {
-    protected $smarty;
+    protected $view;
 
     public function __construct(ContainerInterface $container = null)
     {
         $this->setContainer($container);
-        $this->smarty = new Smarty();
+        $this->view = new View();
     }
 
     /**
