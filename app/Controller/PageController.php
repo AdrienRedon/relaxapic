@@ -28,10 +28,11 @@ class PageController extends Controller
     public function admin()
     {
         if ($this->auth->check()) { // toto : admin
-            echo 'vous etes co';
+            $content = 'vous êtes bien connecté';
         } else {
-            echo 'vous etes pas co';
+            $content = 'vous n\'êtes pas connecté';
         }
+        $this->view->render('Page/admin', compact('content'));
     }
 
     public function loginForm()
