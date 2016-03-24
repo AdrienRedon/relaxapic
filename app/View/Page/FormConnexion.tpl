@@ -1,5 +1,5 @@
 {include file="templates/header.tpl" title=login}
-    
+    <link rel="stylesheet" type="text/css" href="source/page.css" media="all"/>
         <form action="{WEBROOT}login" method="post">
             
             <p>

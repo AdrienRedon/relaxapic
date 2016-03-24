@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Core\Controller\Controller;
 use App\Libs\Auth;
 use App\Libs\Session;
+use App\Validator\LoginValidator;
 
 class PageController extends Controller
 {
@@ -42,10 +43,22 @@ class PageController extends Controller
 
     public function login()
     {
+        $validation = new LoginValidator();
+        if ($validation->fails()) {
+            die('Login ou Mot de passe incorrecte');
+        }
         if ($this->auth->attempt($_POST['login'], $_POST['pass'])) {
             $this->admin();
         } else {
             echo 'login incorrecte';
+        }
+    }
+
+    public function signin()
+    {
+        $validation = new SigninValidator();
+        if ($validation->fails()) {
+            die('Adresse mail ou mot de passe incorrecte');
         }
     }
 }

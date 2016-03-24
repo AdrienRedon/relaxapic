@@ -1,44 +1,30 @@
-<html>
-
-    <head>
-    
-        <title>Formulaire d'inscription</title>
-    
-    </head>
-    
-    <body>
+{include file="templates/header.tpl" title=login}
     
         <form action="index.php" method="post">
         
-            <table>
+            <p>
             
-            <tr>
+            <label for="login">Nom de compte :</label>
+            <input type="text" name="login" id="login"/>
             
-            <td><label for="login"><strong>Nom de compte :</strong></label></td>
-            <td><input type="text" name="login" id="login"/></td>
+            </p>
             
-            </tr>
+            <p>
             
-            <tr>
+            <label for="pass"><strong>Mot de passe :</strong></label>
+            <input type="password" name="pass" id="pass"/></td>
             
-            <td><label for="pass"><strong>Mot de passe :</strong></label></td>
-            <td><input type="password" name="pass" id="pass"/></td>
+            </p>
             
-            </tr>
+            <p>
             
-            <tr>
-            
-            <td><label for="pass2"><strong>Confirmez le mot de passe :</strong></label></td>
-            <td><input type="password" name="pass2" id="pass2"/></td>
+            <label for="pass2"><strong>Confirmez le mot de passe :</strong></label>
+            <input type="password" name="pass_confirm" id="pass_confirm"/>
 
-            </tr>
-            
-            </table>
+            </p>
         
         <input type="submit" name="register" value="S'inscrire"/>
         
         </form>
     
-    </body>
-
-</html>
+{include file="templates/footer.tpl"}

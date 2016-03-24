@@ -66,6 +66,20 @@ class Validator
                             return false;
                         }
                     }
+                    else if(substr($rule, 0, 5) == 'upper')
+                    {
+                        if(!preg_match('/[A-Z]/', $data)){
+                            $this->errors = "Le champs $data doit contenir au moins une majuscule";
+                            return false;
+                        }
+                    }
+                    else if(substr($rule, 0, 7) == 'numeric')
+                    {
+                        if(!preg_match('/(?=.*\d)/', $data)){
+                            $this->errors = "Le champs $data doit contenir au moins un chiffre";
+                            return false;
+                        }
+                    }
                     else if(substr($rule, 0, 4) == 'size')
                     {
                         $rule = explode(':', $rule);
