@@ -37,7 +37,7 @@ class PageController extends Controller
 
     public function loginForm()
     {
-    	include(ROOT. 'app/View/Page/FormConnexion.php');
+        $this->view->render('Page/FormConnexion');
     }
 
     public function login()
