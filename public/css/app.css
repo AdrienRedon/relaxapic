@@ -1,18 +1,36 @@
 html, body {
     margin: 0;
+    font-size: 16px;
 }
 
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*:after, *:before {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
 
 header {
     display : flex; 
     width : 100%;
-    height : 470px;
+    height : 270px;
     margin : 0;
     
     border-top : 10px solid #1c9898;
     border-bottom : 40px solid #1c9898;
     
     background: url(../img/mountains1.jpg) center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.header--big {
+    height : 470px;
 }
 
 .header__logo {
@@ -21,20 +39,32 @@ header {
 }
 
 .header__title {
-    margin : auto;
+    margin : 26px 0 0 10px;
     flex : 2;
         
-    font-size : 8em;
+    font-size : 3.6rem;
     font-family: Seravek;
     font-weight: 300;
     color : #fff;
+    text-align: left;
+}
+
+.header--big .header__title {
+    margin : auto;
+
+    font-size : 8rem;
     text-align: center;
 }
 
-.header__login{
+.header__login {
     margin : 20px 20px 0 0; 
+}
+
+.header__login > a {
     font-size : 1.3em;
     font-family: Seravek;
     
     color : #1c9898;
+    cursor : pointer;
+    text-decoration: none;
 }

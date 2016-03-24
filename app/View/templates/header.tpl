@@ -5,13 +5,17 @@
         <link rel="stylesheet" type="text/css" href="{WEBROOT}css/app.css">
     </head>
     <body>
-        <header>
-            <img class="header__logo" src="{WEBROOT}img/relaxapic_logo.png" alt="Relaxapic logo" height="75" width="75">
+        <header {if $size=="big"}class="header--big"{/if}>
+            <div class="header__logo">
+                <a href="{WEBROOT}">
+                    <img src="{WEBROOT}img/relaxapic_logo.png" alt="Relaxapic logo" height="75" width="75">
+                </a>
+            </div>
             <h1 class="header__title">
                 RELAXAPIC
             </h1>
             <div class="header__login">
-                Se connecter
+                <a href="{WEBROOT}login">Se connecter</a>
             </div>
         </header>
     
