@@ -17,13 +17,9 @@ class PageController extends Controller
         $this->auth = new Auth(new Session());
     }
 
-    public function index($person = "World")
+    public function index()
     {
-        if ($this->isAjax()) {
-            die(json_encode(array('ajax' => true)));
-        } else {
-            echo "Hello $person !";
-        }
+        $this->view->render('Page/index');
     }
 
     public function admin()

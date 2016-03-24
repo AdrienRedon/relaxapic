@@ -1,3 +1,5 @@
 /vendor/
 composer.lock
 /app/config.php
+/app/View/cache/
+app/View/templates_c/
