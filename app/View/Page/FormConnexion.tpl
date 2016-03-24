@@ -1,4 +1,4 @@
-{include file="templates/header.tpl" title=login}
+{include file="templates/header.tpl" title="login"}
     
         <form action="{WEBROOT}login" method="post">
             

@@ -1,0 +1,40 @@
+html, body {
+    margin: 0;
+}
+
+
+header {
+    display : flex; 
+    width : 100%;
+    height : 470px;
+    margin : 0;
+    
+    border-top : 10px solid #1c9898;
+    border-bottom : 40px solid #1c9898;
+    
+    background: url(../img/mountains1.jpg) center no-repeat;
+}
+
+.header__logo {
+    align-self : flex-start;
+    margin : 20px 0 0 20px;  
+}
+
+.header__title {
+    margin : auto;
+    flex : 2;
+        
+    font-size : 8em;
+    font-family: Seravek;
+    font-weight: 300;
+    color : #fff;
+    text-align: center;
+}
+
+.header__login{
+    margin : 20px 20px 0 0; 
+    font-size : 1.3em;
+    font-family: Seravek;
+    
+    color : #1c9898;
+}
