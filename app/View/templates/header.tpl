@@ -2,11 +2,7 @@
 <html>
     <head>
         <title>Relaxapic {$title}</title>
-<<<<<<< Updated upstream
-        <link rel="stylesheet" href="{WEBROOT}css/style.css">
-=======
         <link rel="stylesheet" type="text/css" href="{WEBROOT}css/app.css">
->>>>>>> Stashed changes
     </head>
     <body>
         <header>
