@@ -35,7 +35,7 @@ class PageController extends Controller
 
     public function loginForm()
     {
-        $this->view->render('Page/FormConnexion');
+        $this->view->render('Page/login');
     }
 
     public function login()

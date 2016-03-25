@@ -5,15 +5,19 @@ namespace App\Core\Controller;
 use App\Core\DependencyInjection\ContainerAware;
 use App\Core\DependencyInjection\ContainerInterface;
 use App\Core\View\View;
+use App\Libs\Redirection;
 
 class Controller extends ContainerAware
 {
     protected $view;
 
+    protected $redirect;
+
     public function __construct(ContainerInterface $container)
     {
         $this->setContainer($container);
         $this->view = new View();
+        $this->redirect = new Redirection($this->container->resolve('SessionInterface'));
         $this->view->setDirectoryPath('app/View/');
     }
 

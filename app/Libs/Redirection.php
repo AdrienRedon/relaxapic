@@ -1,6 +1,6 @@
 <?php
 
-namespace Libs;
+namespace App\Libs;
 
 use App\Core\Config;
 use App\Libs\SessionInterface;
@@ -34,6 +34,7 @@ class Redirection
 
     public function to($url)
     {
+        $url = trim($url, '/');
         header('Location: ' . WEBROOT. $url);
     }
 

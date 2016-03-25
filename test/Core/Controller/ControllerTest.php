@@ -13,8 +13,8 @@ class ControllerTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $container = new Container();
-        $container->register('App\Controller\TestController', function() {
-            return new \Test\Controller\TestController;
+        $container->register('App\Controller\TestController', function() use($container) {
+            return new \Test\Controller\TestController($container);
         });
         $this->controllerResolver = new ControllerResolver($container);
     }
