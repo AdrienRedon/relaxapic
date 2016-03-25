@@ -37,7 +37,7 @@ class ControllerResolver
                 include_once($filePath);
 
                 $controllerName = 'App\Controller\\' . $controllerParams[0];
-                $controller = new $controllerName();
+                $controller = new $controllerName($this->container);
                 $this->container->register($controllerName, $controller);
             } else {
                 throw $e; 

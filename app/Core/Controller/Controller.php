@@ -10,7 +10,7 @@ class Controller extends ContainerAware
 {
     protected $view;
 
-    public function __construct(ContainerInterface $container = null)
+    public function __construct(ContainerInterface $container)
     {
         $this->setContainer($container);
         $this->view = new View();

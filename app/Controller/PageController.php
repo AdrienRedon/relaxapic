@@ -6,15 +6,16 @@ use App\Core\Controller\Controller;
 use App\Libs\Auth;
 use App\Libs\Session;
 use App\Validator\LoginValidator;
+use App\Core\DependencyInjection\ContainerInterface;
 
 class PageController extends Controller
 {
     protected $auth;
 
-    public function __construct()
+    public function __construct(ContainerInterface $container = null)
     {
-        parent::__construct();
-        $this->auth = new Auth(new Session());
+        parent::__construct($container);
+        $this->auth = new Auth($this->container->resolve('SessionInterface'));
     }
 
     public function index()

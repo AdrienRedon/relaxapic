@@ -10,6 +10,8 @@ class View
 
     protected $directoryPath;
 
+    protected $defaultView;
+
     public function __construct()
     {
         $this->smarty = new Smarty();
