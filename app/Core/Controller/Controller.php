@@ -6,6 +6,7 @@ use App\Core\DependencyInjection\ContainerAware;
 use App\Core\DependencyInjection\ContainerInterface;
 use App\Core\View\View;
 use App\Libs\Redirection;
+use App\Core\Model\ModelResolver;
 
 class Controller extends ContainerAware
 {
@@ -19,6 +20,7 @@ class Controller extends ContainerAware
         $this->view = new View();
         $this->redirect = new Redirection($this->container->resolve('SessionInterface'));
         $this->view->setDirectoryPath('app/View/');
+        $this->modelResolver = new ModelResolver($container);
     }
 
     /**

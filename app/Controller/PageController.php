@@ -6,6 +6,7 @@ use App\Core\Controller\Controller;
 use App\Libs\Auth;
 use App\Libs\Session;
 use App\Validator\LoginValidator;
+use App\Validator\SigninValidator;
 use App\Core\DependencyInjection\ContainerInterface;
 
 class PageController extends Controller
@@ -39,18 +40,26 @@ class PageController extends Controller
         if ($validation->fails()) {
             die('Login ou Mot de passe incorrecte');
         }
-        if ($this->auth->attempt($_POST['login'], $_POST['pass'])) {
+        if ($this->auth->attempt($_POST['mail'], $_POST['password'])) {
             $this->admin();
         } else {
             echo 'login incorrecte';
         }
     }
 
-    public function login_check()
+    public function signin()
     {
-        $validation = new LoginValidator();
+        $input = array(
+            'mail'    => $_POST['mail'],
+            'password' => password_hash($_POST['password'], PASSWORD_DEFAULT)
+        );
+        $validation = new SigninValidator();
         if ($validation->fails()) {
-            die(json_encode(['validation' => 'fails']));
+            die('Login ou Mot de passe incorrecte');
+        } else {
+            $user = $this->modelResolver->get('User');
+            $user->save($input);
+            $this->redirect->home();
         }
     }
 
