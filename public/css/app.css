@@ -15,6 +15,7 @@ html, body {
     box-sizing: inherit;
 }
 
+
 header {
     display : flex; 
     width : 100%;
@@ -132,6 +133,7 @@ header {
   flex: 2;
   align-self: center;
   margin-left: 10px;
+  color: #616363;
 }
 
 .pathology__container > .info {

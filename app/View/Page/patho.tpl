@@ -12,32 +12,32 @@
             </div>
 			<ul class="pathologies__container">
 				<li class="pathology__container">
-					<div class="category__title">
-						YOLO YOLO YOLO YOLO YOLO 
+					<div class="pathology__title">
+						Méridien du poumon externe 
 					</div>
 					<a class="info">
 						<i class="icon icon-info-circled"></i>
 					</a>
 				</li>
 				<li class="pathology__container">
-					<div class="category__title">
-						YOLO YOLO YOLO YOLO YOLO 
+					<div class="pathology__title">
+						Méridien du poumon interne
 					</div>
 					<a class="info">
 						<i class="icon icon-info-circled"></i>
 					</a>
 				</li>
 				<li class="pathology__container">
-					<div class="category__title">
-						YOLO YOLO YOLO YOLO YOLO 
+					<div class="pathology__title">
+						Méridien du gros intestin externe 
 					</div>
 					<a class="info">
 						<i class="icon icon-info-circled"></i>
 					</a>
 				</li>
 				<li class="pathology__container">
-					<div class="category__title">
-						YOLO YOLO YOLO YOLO YOLO 
+					<div class="pathology__title">
+						Méridien du gros intestin interne
 					</div>
 					<a class="info">
 						<i class="icon icon-info-circled"></i>
