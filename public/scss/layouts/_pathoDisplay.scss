@@ -18,12 +18,17 @@
     width: 100%;
     background-color: #f2f2f2;
     align-items: center;
+    padding: 10px;
 }
 
 .category__container {
   display: flex;
   flex-direction: column;
   width: 50%;
+  @include shadow(1);
+  margin-top: 10px;
+  border-radius: 3px;
+  overflow: hidden;
 }
 
 .category_title__container {

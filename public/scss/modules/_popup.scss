@@ -14,7 +14,7 @@
 
     @include border-radius(8px);
     background-color: #faf9f9;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    @include shadow(2);
 
     label {
         display: block;

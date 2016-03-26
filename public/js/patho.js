@@ -1,6 +1,12 @@
 var $ = require("jquery");
 
-$( document ).ready(function() {
-
-
+$(function() {
+    $("#meridien").on("click", function() {
+    	$.ajax(
+    		url: "/public/getPatho",
+    		data: {
+    			id: 1
+    		}
+    	);
+    });
 });
