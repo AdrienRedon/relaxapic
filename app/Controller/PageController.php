@@ -58,4 +58,19 @@ class PageController extends Controller
             die('Adresse mail ou mot de passe incorrecte');
         }
     }
+
+    public function pathologies()
+    {
+        $this->view->render('Page/pathologies');
+    }
+
+    public function salons()
+    {
+        $this->view->render('Page/salons');
+    }
+
+    public function membres()
+    {
+        $this->view->render('Page/membres');
+    }
 }

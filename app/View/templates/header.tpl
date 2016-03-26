@@ -19,9 +19,9 @@
             </div>
         </header>
         <nav>
-            <a href="#"> Pathologies </a>
-            <a href="#"> Salons </a>
-            <a href="#"> Membres </a>
+            <a href="{WEBROOT}pathologies"> Pathologies </a>
+            <a href="{WEBROOT}salons"> Salons </a>
+            <a href="{WEBROOT}membres"> Membres </a>
         </nav>
     
 
