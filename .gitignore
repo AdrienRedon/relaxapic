@@ -1,5 +1,7 @@
 /vendor/
+/node_modules/
 composer.lock
+/public/.sass-cache/
 /app/config.php
 /app/View/cache/
 app/View/templates_c/

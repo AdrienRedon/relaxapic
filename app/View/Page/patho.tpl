@@ -34,6 +34,7 @@
 					<a class="info">
 						<i class="icon icon-info-circled"></i>
 					</a>
+					<div class=""></div>
 				</li>
 				<li class="pathology__container">
 					<div class="pathology__title">
