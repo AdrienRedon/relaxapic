@@ -68,10 +68,10 @@ class Auth
      * @param  string $password Mot de passe de l'utilisateur
      * @return bool
      */
-    public function attempt($login, $password)
+    public function attempt($mail, $password)
     {
-        $user = $this->user->where(['login' => $login, 'password' => sha1($password)])->first();
-        if(isset($user))
+        $user = $this->user->where(['mail' => $mail])->first();
+        if(isset($user) && $user->check_password($password))
         {
             $this->login($user);
             return true;

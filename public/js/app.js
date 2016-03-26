@@ -38,5 +38,6 @@ $('#signin__button').on('click', function(e) {
 
 $('.signin__popup').on('click', '.cancel__button', function(e) {
     e.preventDefault();
+    $('.overlay').addClass('hidden');
     $(this).parent().addClass('hidden');
 });
