@@ -1,4 +1,4 @@
-<form class="popup">
+<form class="login__popup">
     
     <div>
         <label for="mail">
@@ -13,7 +13,7 @@
         <input type="password" name="password" id="password" />
     </div>
 
-    <button class="signin__button">Inscription</button>
-    <button class="login__button">Connexion</button>
+    <a class="cancel__button">Annuler</a>
+    <a class="login__button">Connexion</a>
 
 </form>
