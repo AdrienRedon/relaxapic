@@ -1,4 +1,4 @@
-{include file="templates/header.tpl" title="login" size="small"}
+{include file="templates/header.tpl" title="Pathologies" size="small"}
     
 <div class="filers__container">
 
