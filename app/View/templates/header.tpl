@@ -18,5 +18,10 @@
                 <a href="{WEBROOT}login">Se connecter</a>
             </div>
         </header>
+        <nav>
+            <a href="#"> Pathologies </a>
+            <a href="#"> Salons </a>
+            <a href="#"> Membres </a>
+        </nav>
     
 
