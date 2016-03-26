@@ -1,0 +1,21 @@
+@mixin button() {
+    color: $mainColor;
+    cursor: pointer;
+
+    border: none;
+    background-color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.cancel__button {
+    @include button();
+
+    float: left;
+}
+
+.login__button, .sigin__button {
+    @include button();
+
+    float: right;
+}

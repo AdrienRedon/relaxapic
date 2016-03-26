@@ -15,7 +15,7 @@
                 RELAXAPIC
             </h1>
             <div class="header__login">
-                <a href="{WEBROOT}login">Se connecter</a>
+                <a id="login__button" href="#">Se connecter</a>
             </div>
         </header>
         <nav>
@@ -23,5 +23,8 @@
             <a href="{WEBROOT}salons"> Salons </a>
             <a href="{WEBROOT}membres"> Membres </a>
         </nav>
+
+    {include file="templates/popup/login.tpl"}
+
     
 
