@@ -1,6 +1,6 @@
 {include file="templates/header.tpl" title="Pathologies" size="small"}
     
-<div class="filers__container">
+<div class="filters__container">
 
 </div>
 <div class="categories__container">
