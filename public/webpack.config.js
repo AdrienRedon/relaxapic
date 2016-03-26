@@ -9,6 +9,11 @@ module.exports = {
     path: __dirname + "/js",
     filename: "app.min.js"
   },
+  modulesDirectories: [
+      "package_modules",
+      "./js/",
+      "node_modules"
+    ],
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),

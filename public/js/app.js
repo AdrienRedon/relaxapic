@@ -1,43 +1,12 @@
 var $ = require("jquery");
 
-/**
- * Overlay
- */
 
-$('.overlay').on('click', function(e) {
-    e.stopPropagation();
-    $('.login__popup').addClass('hidden');
-    $('.signin__popup').addClass('hidden');
-    $(this).addClass('hidden');
-});
+if (window.location.href.indexOf("public/pathologies") !== false) {
 
-/**
- * Login
- */
+    require("./patho");
 
-$('#login__button').on('click', function(e) {
-    e.preventDefault();
-    $('.overlay').removeClass('hidden');
-    $('.login__popup').removeClass('hidden');
-});
+} else if (window.location.href.indexOf("public/") !== false) {
 
-$('.login__popup').on('click', '.cancel__button', function(e) {
-    e.preventDefault();
-    $(this).parent().addClass('hidden');
-});
+    require("./popup");
 
-/**
- * Signin
- */
-
-$('#signin__button').on('click', function(e) {
-    e.preventDefault();
-    $('.overlay').removeClass('hidden');
-    $('.signin__popup').removeClass('hidden');
-});
-
-$('.signin__popup').on('click', '.cancel__button', function(e) {
-    e.preventDefault();
-    $('.overlay').addClass('hidden');
-    $(this).parent().addClass('hidden');
-});
+}
