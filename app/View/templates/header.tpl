@@ -3,6 +3,7 @@
     <head>
         <title>Relaxapic {$title}</title>
         <link rel="stylesheet" type="text/css" href="{WEBROOT}css/app.css">
+        <meta charset="utf-8"/>
     </head>
     <body>
         <header {if $size=="big"}class="header--big"{/if}>
