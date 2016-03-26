@@ -68,3 +68,17 @@ header {
     cursor : pointer;
     text-decoration: none;
 }
+
+.filers__container {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    background-color: blue;
+}
+
+.categories__container {
+    display: flex;
+    flex: 2;
+    width: 100%;
+    background-color: aqua;
+}
