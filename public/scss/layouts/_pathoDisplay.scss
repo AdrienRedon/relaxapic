@@ -96,15 +96,27 @@
   font-size: 1.2em;
 }
 
+.pathology_title__container.active {
+  background-color: #fbfbfb;
+  border-bottom: none;
+  .pathology__title {
+    font-weight: bold;
+  }
+  .info {
+    color: #9eaaaa;
+  }
+}
+
 /* /////////// PATHOLOGY Container & Header - END /////////// */
 
 /* /////////// PATHOLOGY Info - START /////////// */
 
 .pathology_info__container {
   display: flex;
+  min-height: 150px;
   height: 100%;
-  background-color: orange;
   border-bottom: 1px solid #dadada;
+  background-color: white;
 }
 
 /* Meridien - START */
@@ -112,8 +124,7 @@
   display: inherit;
   flex-direction:column;
   flex: 1;
-  height: 100%;
-  background-color: pink;
+  min-height: 150px;
 }
 
 .pathology_meridien_container {
@@ -123,13 +134,13 @@
   align-items: center;
   justify-content: center;
   border-right: 1px solid #dadada;
-  height: 100%;
-  background-color: green;
+  min-height: 150px;
 }
 
 .pathology_meridien_title {
   flex: 1;
   text-align: center;
+  color: #bababa;
 }
 
 .pathology_meridien_name {
@@ -154,7 +165,6 @@
   flex-direction:column;
   height: 100%;
   flex: 3;
-  background-color: red;
 }
 
 .pathology_symptoms_container {
@@ -162,6 +172,10 @@
   flex-direction: column;
   margin: 10px;
   height: 100%;
+}
+
+.pathology_symptoms_title {
+  color: #bababa;
 }
 
 .pathology_symptoms_list {

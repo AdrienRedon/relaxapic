@@ -32,14 +32,13 @@
 						</div>
 					</li>
 					<li class="pathology__container">
-						<div class="pathology_title__container">
+						<div class="pathology_title__container active">
 							<div class="pathology__title">
 								Méridien du gros intestin externe 
 							</div>
 							<a class="info">
 								<i class="icon icon-info-circled"></i>
 							</a>
-							<div class=""></div>
 						</div>
 						<div class="pathology_info__container">
 							<div class="pathology_meridien__wrapper">
@@ -58,7 +57,7 @@
 							<div class="pathology_symptoms__wrapper">
 								<div class="pathology_symptoms_container">
 									<div class="pathology_symptoms_title">
-										SYMPTOMES
+										SYMPTÔMES
 									</div>
 									<ul class="pathology_symptoms_list">
 										<li>- Chaleur et enflure sur le trajet du méridien</li>
