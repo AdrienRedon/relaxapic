@@ -1,6 +1,11 @@
 @mixin button() {
-    color: $mainFontColor;
+    color: $mainColor;
     cursor: pointer;
+
+    border: none;
+    background-color: inherit;
+    font-family: inherit;
+    font-size: inherit;
 }
 
 .cancel__button {

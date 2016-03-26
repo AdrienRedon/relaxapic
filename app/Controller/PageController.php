@@ -33,11 +33,6 @@ class PageController extends Controller
         $this->view->render('Page/admin', compact('content'));
     }
 
-    public function loginForm()
-    {
-        $this->view->render('Page/login');
-    }
-
     public function login()
     {
         $validation = new LoginValidator();
@@ -51,11 +46,11 @@ class PageController extends Controller
         }
     }
 
-    public function signin()
+    public function login_check()
     {
-        $validation = new SigninValidator();
+        $validation = new LoginValidator();
         if ($validation->fails()) {
-            die('Adresse mail ou mot de passe incorrecte');
+            die(json_encode(['validation' => 'fails']));
         }
     }
 

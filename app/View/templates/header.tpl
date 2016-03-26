@@ -15,7 +15,7 @@
                 RELAXAPIC
             </h1>
             <div class="header__login">
-                <a href="{WEBROOT}login">Se connecter</a>
+                <a id="login__button" href="#">Se connecter</a>
             </div>
         </header>
         <nav>
