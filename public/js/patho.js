@@ -2,11 +2,11 @@ var $ = require("jquery");
 
 $(function() {
     $("#meridien").on("click", function() {
-    	$.ajax(
-    		url: "/public/getPatho",
-    		data: {
-    			id: 1
-    		}
-    	);
+    	$.ajax({
+    		url: "getPatho/1",
+    		method: 'get',
+    	}).done(function(data) {
+    		console.log(data);
+    	});
     });
 });

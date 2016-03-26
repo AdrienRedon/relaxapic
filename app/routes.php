@@ -14,4 +14,4 @@ $router->get('/pathologies', 'PageController@pathologies');
 $router->get('/salons', 'PageController@salons');
 $router->get('/membres', 'PageController@membres');
 
-$router->get('/getPatho/:id', 'PathoController@getPatho')->with('id', '^[1-5]$');
+$router->get('/getPatho/:id', 'PathoController@getPatho');

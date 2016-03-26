@@ -18,7 +18,9 @@ class PageController extends Controller
         $this->auth = new Auth($this->container->resolve('SessionInterface'));
     }
 
-    public function getPatho ($id) {
+    public function getPatho() 
+    {
+        $id = $_POST['id'];
     	$patho = $this->modelResolver->get('Patho');
 
     	if ($id == 1) {
