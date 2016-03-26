@@ -1,4 +1,5 @@
 @mixin popup() {
+    z-index: 9000;
     position: fixed;
     top: 40%;
     right: 0;
@@ -24,6 +25,6 @@
     @include popup();
 }
 
-.sigin__popup {
+.signin__popup {
     @include popup();
 }
