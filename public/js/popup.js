@@ -4,6 +4,14 @@ var $ = require("jquery");
  * Overlay
  */
 
+$('body').keypress(function(e){
+    if(e.which == 27){
+        $('.login__popup').addClass('hidden');
+        $('.signin__popup').addClass('hidden');
+        $('.overlay').addClass('hidden');
+    }
+});
+
 $('.overlay').on('click', function(e) {
     e.stopPropagation();
     $('.login__popup').addClass('hidden');
@@ -24,6 +32,7 @@ $('#login__button').on('click', function(e) {
 $('.login__popup').on('click', '.cancel__button', function(e) {
     e.preventDefault();
     $(this).parent().addClass('hidden');
+    $('.overlay').addClass('hidden');
 });
 
 /**
@@ -39,4 +48,5 @@ $('#signin__button').on('click', function(e) {
 $('.signin__popup').on('click', '.cancel__button', function(e) {
     e.preventDefault();
     $(this).parent().addClass('hidden');
+    $('.overlay').addClass('hidden');
 });
