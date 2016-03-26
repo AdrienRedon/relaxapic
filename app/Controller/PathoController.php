@@ -8,7 +8,7 @@ use App\Libs\Session;
 use App\Core\DependencyInjection\ContainerInterface;
 use App\Model\Patho;
 
-class PageController extends Controller
+class PathoController extends Controller
 {
     protected $auth;
 
@@ -18,13 +18,12 @@ class PageController extends Controller
         $this->auth = new Auth($this->container->resolve('SessionInterface'));
     }
 
-    public function getPatho() 
+    public function getPatho($id) 
     {
-        $id = $_POST['id'];
     	$patho = $this->modelResolver->get('Patho');
 
     	if ($id == 1) {
-			return json_encode($patho->getPathoMeridien());
+			die(json_encode($patho->getPathoMeridien()));
     	}
     }
 }
