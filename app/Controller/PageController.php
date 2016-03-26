@@ -38,12 +38,14 @@ class PageController extends Controller
     {
         $validation = new LoginValidator();
         if ($validation->fails()) {
-            die('Login ou Mot de passe incorrecte');
+            $this->flash->set($validation->getErrors());
+            $this->redirect->backWithInput($_POST);
         }
         if ($this->auth->attempt($_POST['mail'], $_POST['password'])) {
             $this->admin();
         } else {
-            echo 'login incorrecte';
+            $this->flash->set('login incorrect');
+            $this->redirect->backWithInput($_POST);
         }
     }
 
@@ -55,7 +57,9 @@ class PageController extends Controller
         );
         $validation = new SigninValidator();
         if ($validation->fails()) {
-            die('Login ou Mot de passe incorrecte');
+
+            $this->flash->set($validation->getErrors());
+            $this->redirect->backWithInput($_POST);
         } else {
             $user = $this->modelResolver->get('User');
             $user->save($input);

@@ -29,5 +29,9 @@
 
     <div class="overlay hidden"></div>
 
+    {if isset($flash)}
+        {$flash->get()}
+    {/if}
+
     
 
