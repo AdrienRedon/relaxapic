@@ -23,5 +23,8 @@
             <a href="{WEBROOT}salons"> Salons </a>
             <a href="{WEBROOT}membres"> Membres </a>
         </nav>
+
+    {include file="templates/popup/login.tpl"}
+
     
 
