@@ -1,0 +1,30 @@
+@mixin popup() {
+    z-index: 9000;
+    position: fixed;
+    top: 40%;
+    right: 0;
+    left: 0;
+    margin: auto;
+
+
+    @include clearfix();
+    display: block;
+    width: 350px;
+    padding: 20px;
+
+    @include border-radius(8px);
+    background-color: #faf9f9;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+    label {
+        display: block;
+    }
+}
+
+.login__popup {
+    @include popup();
+}
+
+.signin__popup {
+    @include popup();
+}
