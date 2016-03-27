@@ -9,7 +9,7 @@
     </div>
     <div class="pathology_meridien_element">
         {if $meridien->element}
-            <img src="{WEBROOT}img/{$meridien->element}" alt="element emblem" width="40" height="40" />
+            <img src="{WEBROOT}img/{$meridien->element}.png" alt="element emblem" width="40" height="40" />
         {/if}
     </div>
 {/foreach}

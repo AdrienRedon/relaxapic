@@ -1,11 +1,3 @@
-/* /////////// FILTERS - START /////////// */
-.filters__container {
-    display: flex;
-    width: 100%;
-    height: 200px;
-    background-color: #909090;
-}
-/* /////////// FILTERS - END /////////// */
 
 /* /////////// CATEGORIES Container & Header- START /////////// */
 .categories__container {
@@ -39,6 +31,7 @@
                 flex: 2;
                 align-self: center;
                 margin-left: 10px;
+                color:darken($mainColor, 1%);
             }
 
             .drop {
