@@ -3,8 +3,11 @@
 namespace App\Core\View;
 
 use \Smarty;
+use App\Libs\Flash;
+use App\Core\DependencyInjection\ContainerAware;
+use App\Core\DependencyInjection\ContainerInterface;
 
-class View
+class View extends ContainerAware
 {
     protected $smarty;
 
@@ -12,9 +15,12 @@ class View
 
     protected $defaultView;
 
-    public function __construct()
+    public function __construct(ContainerInterface $container)
     {
+        $this->setContainer($container);
         $this->smarty = new Smarty();
+        $this->flash = new Flash($container->resolve('SessionInterface'));
+
         $this->smarty->debugging = false;
         $this->smarty->caching = false;
         $this->smarty->cache_lifetime = 120;
@@ -39,6 +45,8 @@ class View
                 $this->smarty->assign($key, $value);
             }
         }
+
+        $this->smarty->registerObject('flash', $this->flash);
 
         $this->smarty->display(ROOT . $this->directoryPath . $path . '.tpl');
     }
