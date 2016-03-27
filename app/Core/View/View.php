@@ -22,7 +22,7 @@ class View extends ContainerAware
         $this->flash = new Flash($container->resolve('SessionInterface'));
 
         $this->smarty->debugging = false;
-        $this->smarty->caching = true;
+        $this->smarty->caching = false;
         $this->smarty->cache_lifetime = 120;
     }
 
@@ -39,7 +39,11 @@ class View extends ContainerAware
     public function render($path, $vars = array())
     {
         foreach($vars as $key => $value) {
-            $this->smarty->assign($key, $value);
+            if (is_object($value)) {
+                $this->smarty->registerObject($key, $value);
+            } else {
+                $this->smarty->assign($key, $value);
+            }
         }
 
         $this->smarty->registerObject('flash', $this->flash);

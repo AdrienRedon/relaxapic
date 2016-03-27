@@ -69,7 +69,7 @@ class PageController extends Controller
 
     public function pathologies()
     {
-        $this->view->render('Page/pathologies');
+        $this->view->render('Page/patho');
     }
 
     public function salons()

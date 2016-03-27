@@ -8,7 +8,7 @@ use App\Libs\Session;
 use App\Core\DependencyInjection\ContainerInterface;
 use App\Model\Patho;
 
-class PathoController extends Controller
+class SymptomeController extends Controller
 {
     protected $auth;
 
@@ -18,10 +18,11 @@ class PathoController extends Controller
         $this->auth = new Auth($this->container->resolve('SessionInterface'));
     }
 
-    public function getPatho($id) 
+    public function getSymptomesByPatho($idP) 
     {
-    	$patho = $this->modelResolver->get('Patho');
-        $pathos = $patho->getPatho($id)->toArray();
-        $this->view->render('ajax/patho', compact('pathos'));
+        $symptome = $this->modelResolver->get('Symptome');
+
+        $symptomes = $symptome->getSymptomesByPatho($idP)->toArray();
+        $this->view->render('ajax/symptome', compact('symptomes'));
     }
 }

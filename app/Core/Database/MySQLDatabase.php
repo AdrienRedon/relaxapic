@@ -19,6 +19,7 @@ class MySQLDatabase implements DatabaseInterface
         $password = $config->get('sql_password');
         try {
             $this->db = new PDO("mysql:host=$host;dbname=$base", $login, $password);
+            $this->db->exec("SET CHARACTER SET utf8");
         } catch(Exception $e) {
             die("Unable to connect to MySQL Database");
         }
