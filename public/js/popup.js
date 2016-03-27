@@ -4,7 +4,7 @@ var $ = require("jquery");
  * Overlay
  */
 
-$('body').keypress(function(e){
+$('body').keyup(function(e){
     if(e.which == 27){
         $('.login__popup').addClass('hidden');
         $('.signin__popup').addClass('hidden');
