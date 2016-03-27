@@ -16,7 +16,7 @@ class View
     {
         $this->smarty = new Smarty();
         $this->smarty->debugging = false;
-        $this->smarty->caching = true;
+        $this->smarty->caching = false;
         $this->smarty->cache_lifetime = 120;
     }
 
@@ -33,7 +33,11 @@ class View
     public function render($path, $vars = array())
     {
         foreach($vars as $key => $value) {
-            $this->smarty->assign($key, $value);
+            if (is_object($value)) {
+                $this->smarty->registerObject($key, $value);
+            } else {
+                $this->smarty->assign($key, $value);
+            }
         }
 
         $this->smarty->display(ROOT . $this->directoryPath . $path . '.tpl');

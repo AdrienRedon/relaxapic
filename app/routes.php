@@ -15,3 +15,5 @@ $router->get('/salons', 'PageController@salons');
 $router->get('/membres', 'PageController@membres');
 
 $router->get('/getPatho/:id', 'PathoController@getPatho');
+$router->get('/getMeridienByPatho/:idP', 'MeridienController@getMeridienByPatho');
+$router->get('/getSymptomesByPatho/:idP', 'SymptomeController@getSymptomesByPatho');

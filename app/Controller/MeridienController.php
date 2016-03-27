@@ -8,7 +8,7 @@ use App\Libs\Session;
 use App\Core\DependencyInjection\ContainerInterface;
 use App\Model\Patho;
 
-class PathoController extends Controller
+class MeridienController extends Controller
 {
     protected $auth;
 
@@ -18,10 +18,11 @@ class PathoController extends Controller
         $this->auth = new Auth($this->container->resolve('SessionInterface'));
     }
 
-    public function getPatho($id) 
+    public function getMeridienByPatho($idP) 
     {
-    	$patho = $this->modelResolver->get('Patho');
-        $pathos = $patho->getPatho($id)->toArray();
-        $this->view->render('ajax/patho', compact('pathos'));
+        $meridien = $this->modelResolver->get('Meridien');
+
+        $meridiens = $meridien->getMeridienByPatho($idP)->toArray();
+        $this->view->render('ajax/meridien', compact('meridiens'));
     }
 }

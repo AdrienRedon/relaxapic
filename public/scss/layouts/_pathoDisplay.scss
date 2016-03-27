@@ -32,6 +32,8 @@
             background-color: #fefefe;
             width: 100%;
             margin : auto;
+
+            transition: background-color 0.3s;
             
             .category__title {
                 flex: 2;
@@ -47,11 +49,18 @@
                 justify-content: center;
                 cursor: pointer;
                 color: white;
+                
+                i {
+                  transition-duration: .3s;
+                }
             }
             
             &.active {
                 background-color: #07a0a3;
                 color: white;
+                .drop i {
+                  transform: rotate(180deg);
+                }  
             }
          }
     }
@@ -63,7 +72,7 @@
 
 .pathologies__container {
     padding: 0;
-    margin-top: 0;
+    margin: 0;
     list-style-type: none;
     display: flex;
     flex-direction: column;
@@ -82,7 +91,7 @@
         .pathology__title {
             flex: 2;
             align-self: center;
-            margin-left: 10px;
+            margin-left: 30px;
             color: #616363;
         }
 
@@ -167,7 +176,7 @@
             display: inherit;
             flex-direction: column;
             margin: 10px;
-            height: 100%;
+            height: auto;
             
             .pathology_symptoms_title {
                 color: #bababa;
