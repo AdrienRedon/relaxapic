@@ -50,10 +50,14 @@
             
             &.active {
                 background-color: #07a0a3;
-                color: white;
+               
                 .drop i {
                   transform: rotate(180deg);
                 }  
+                
+                .category__title {
+                     color: white;
+                }
             }
          }
     }
@@ -115,8 +119,6 @@
 /* /////////// PATHOLOGY Info - START /////////// */
 .pathology_info__container {
   display: flex;
-  min-height: 150px;
-  height: 100%;
   border-bottom: 1px solid #dadada;
   background-color: white;
   
