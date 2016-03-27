@@ -25,10 +25,19 @@ class TypePathoController extends Controller
         $this->view->render('ajax/patho', compact('pathos'));
     }
 
-    public function getTypesPatho()
+    /**
+     * Affiche tous les types de patho si pas d'id donné sinon le type de patho
+     * @param  int $id 
+     */
+    public function getTypesPatho($idT = null)
     {
         $typePatho = $this->modelResolver->get('TypePatho');
-        $typesPatho = $typePatho->all()->toArray();
+        if (isset($idT)) {
+            $typesPatho = $typePatho->where(['idT' => $idT])->toArray();
+        } else {
+            $typesPatho = $typePatho->all()->toArray();
+        }
+
         $this->view->render('ajax/typePatho', compact('typesPatho'));
     }
 }
