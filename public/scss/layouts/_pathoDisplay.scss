@@ -50,10 +50,14 @@
             
             &.active {
                 background-color: #07a0a3;
-                color: white;
+               
                 .drop i {
                   transform: rotate(180deg);
                 }  
+                
+                .category__title {
+                     color: white;
+                }
             }
          }
     }
