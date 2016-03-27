@@ -1,0 +1,88 @@
+/* /////////// FILTERS - START /////////// */
+.filters__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .filters__container {
+        
+        display: flex;
+        width: 50%;
+        background-color: #CACACA;
+        flex-direction: column;
+        align-items: center;
+    
+        .type_patho__container {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            @include shadow(1);
+            margin-top: 10px;
+            border-radius: 3px;
+            overflow: hidden;
+            
+            .type_patho_title__container {
+                display:flex;
+                height: 40px;
+                background-color: #fefefe;
+                width: 100%;
+                margin : auto;
+
+                transition: background-color 0.3s;
+                
+                .type_patho__title {
+                    flex: 2;
+                    align-self: center;
+                    margin-left: 10px;
+                    color: #cacaca;
+                }
+                
+                .drop_select {
+                    display: inherit;
+                    width : 40px;
+                    background-color: #1c9898;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    color: white;
+                    
+                    i {
+                        transition-duration: .3s;
+                    }
+                }
+                
+                &.active {
+                    background-color: #07a0a3;
+                    color: white;
+                    .drop i {
+                    transform: rotate(180deg);
+                    }  
+                }
+            }
+            
+            .type_patho_select {
+                display: none;
+                position: absolute;
+                height: 150px;
+                width: 40%;
+                outline:none;
+                
+                &:focus {
+                    outline-style: none;
+                }
+                
+                .option_item{
+                    font-size: 0.9rem;
+                    padding:10px 10px 0 10px;
+                    color: #606060;
+                    
+                    &:selected{
+                        background-color: red;
+                    }
+                }
+            }
+        }
+    }
+}
+/* /////////// FILTERS - END /////////// */
+

@@ -19,10 +19,12 @@
                 <a id="signin__button" href="#">S'inscrire</a> <a id="login__button" href="#">Se connecter</a>
             </div>
         </header>
-        <nav>
-            <a href="{WEBROOT}pathologies"> Pathologies </a>
-            <a href="{WEBROOT}salons"> Salons </a>
-            <a href="{WEBROOT}membres"> Membres </a>
+        <nav class="menu {if $size=="big"}menu--big{/if}">
+            <ul class="menu__list">
+                <li class="menu__item link_patho{if $title=="Pathologies"} active{/if}"><a href="{WEBROOT}pathologies"> Pathologies </a></li>
+                <li class="menu__item link_salons{if $title=="Salons"} active{/if}"><a href="{WEBROOT}salons"> Salons </a></li>
+                <li class="menu__item link_membres{if $title=="Membres"} active{/if}"><a href="{WEBROOT}membres"> Membres </a></li>
+            </ul>
         </nav>
 
     {include file="templates/popup/login.tpl"}
@@ -34,5 +36,7 @@
         {$flash->get()}
     {/if}
 
+    <div class="main__wrapper">
+    
     
 

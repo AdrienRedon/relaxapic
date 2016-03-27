@@ -1,4 +1,75 @@
 footer {
+    display: flex;
     height: 250px;
     background-color: $lightMainColor;
+
+    color: white;
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .footer__logo {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .logo__container {
+            margin : 20px 0 0 20px;
+            display: flex;
+            align-items: center;
+
+            .logo__img {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .footer__sitemap {
+        flex: 5;
+        margin-left: 50px;
+
+        .footer__sitemap__menu {
+            margin: 40px 0 50px 0;
+            font-weight: bold;
+
+            li {
+                margin: 10px 0 10px 0;
+            }
+        }
+        
+        .footer__sitemap__others {
+            li {
+                display: inline-block;
+                margin-right: 50px;
+            }
+        }
+
+    }
+
+    .footer__social {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        flex: 1;
+
+        .footer__social-icons {
+            margin-right: 50px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        i {
+            padding: 4px;
+            background-color: darken($mainColor, 3%);
+            border-radius: 50%;
+            font-size: 1.4rem;
+        }
+    }
 }

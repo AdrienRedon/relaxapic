@@ -4,4 +4,5 @@ composer.lock
 /public/.sass-cache/
 /app/config.php
 /app/View/cache/
-app/View/templates_c/
+/app/View/templates_c/
+/public/js/app.min.js
