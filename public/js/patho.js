@@ -13,7 +13,7 @@ $(function() {
             if ($title.hasClass('active')) {
 
                 $title.removeClass('active');
-                $liste.slideUp(400);
+                $liste.slideUp(300);
 
             } else {
 
@@ -22,7 +22,7 @@ $(function() {
 
                 $liste.html(response);
                 $liste.find('.pathology_info__container').hide();
-                $liste.slideDown(400);
+                $liste.slideDown(300);
             }
 
     	});
@@ -43,7 +43,7 @@ $(function() {
             if ($title.hasClass('active')) {
 
                 $title.removeClass('active');
-                $infoContainer.slideUp(400);
+                $infoContainer.slideUp(300);
 
             } else {
 
@@ -53,7 +53,7 @@ $(function() {
                 console.log(response);
 
                 $meridienContainer.html(response);
-                $infoContainer.slideDown(400);
+                $infoContainer.slideDown(300);
             }
 
         });

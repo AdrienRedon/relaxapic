@@ -32,6 +32,10 @@ body {
     display: none !important;
 }
 
+strong {
+    color: $mainColor;
+}
+
 @mixin shadow ($power) {
 	@if $power == 1 {
 		box-shadow: 0 1px 1px rgba(0,0,0,0.1),0 1px 1px rgba(0,0,0,0.1)

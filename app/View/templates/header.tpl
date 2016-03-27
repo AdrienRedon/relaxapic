@@ -21,9 +21,9 @@
         </header>
         <nav class="menu {if $size=="big"}menu--big{/if}">
             <ul class="menu__list">
-                <li class="menu__item{if $title=="Pathologies"} active{/if}"><a href="{WEBROOT}pathologies"> Pathologies </a></li>
-                <li class="menu__item{if $title=="Salons"} active{/if}"><a href="{WEBROOT}salons"> Salons </a></li>
-                <li class="menu__item{if $title=="Membres"} active{/if}"><a href="{WEBROOT}membres"> Membres </a></li>
+                <li class="menu__item link_patho{if $title=="Pathologies"} active{/if}"><a href="{WEBROOT}pathologies"> Pathologies </a></li>
+                <li class="menu__item link_salons{if $title=="Salons"} active{/if}"><a href="{WEBROOT}salons"> Salons </a></li>
+                <li class="menu__item link_membres{if $title=="Membres"} active{/if}"><a href="{WEBROOT}membres"> Membres </a></li>
             </ul>
         </nav>
 
