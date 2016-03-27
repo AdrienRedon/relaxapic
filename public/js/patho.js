@@ -1,13 +1,29 @@
 var $ = require("jquery");
 
 $(function() {
-    $(".drop").on("click", function() {
+
+    /**
+     * Get typePatho
+     */
+    $.ajax({
+        url: "getTypesPatho",
+        method: 'get'
+    }).done(function(response) {
+        $container = $('.categories__container');
+        $container.html(response);
+    });
+
+    /**
+     * Get patho
+     */
+
+    $('body').on("click", ".drop", function() {
         var $container  = $(this).parent().parent();
         var $liste = $container.find('.pathologies__container');
         var $title = $(this).parent();
     	$.ajax({
-    		url: "getPatho/" + $(this).data('id'),
-    		method: 'get',
+    		url: "getListePatho/" + $(this).data('id'),
+    		method: 'get'
     	}).done(function(response) {
 
             if ($title.hasClass('active')) {
@@ -27,6 +43,10 @@ $(function() {
 
     	});
     });
+
+    /**
+     * Get meridien & symptomes
+     */
 
     $("body").on("click", ".info", function() {
         var $infoContainer = $(this).parent().parent().find('.pathology_info__container');

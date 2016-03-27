@@ -17,11 +17,4 @@ class PathoController extends Controller
         parent::__construct($container);
         $this->auth = new Auth($this->container->resolve('SessionInterface'));
     }
-
-    public function getPatho($id) 
-    {
-    	$patho = $this->modelResolver->get('Patho');
-        $pathos = $patho->getPatho($id)->toArray();
-        $this->view->render('ajax/patho', compact('pathos'));
-    }
 }

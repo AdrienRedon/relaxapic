@@ -26,4 +26,9 @@ class Patho extends Model
         $data = $this->db->query($sql);
         return $data;
     }
+
+    public function count($id)
+    {
+        
+    }
 }
