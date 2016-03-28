@@ -2,30 +2,19 @@
 
 namespace App\Libs;
 
-use App\Core\DependencyInjection\Container;
-use App\Core\Model\ModelResolver;
-use App\Core\Database\MySQLDatabase;
-use App\Core\Config;
-use App\Libs\SessionInterface;
+use App\Core\DependencyInjection\ContainerAware;
+use App\Core\DependencyInjection\ContainerInterface;
 
-class Auth 
+class Auth extends ContainerAware
 {
     protected $session;
     protected $user;
     const KEY = 'user';
-    public function __construct(SessionInterface $session)
+    public function __construct(ContainerInterface $container)
     {
-        $container = new Container();
-        $config = new Config('app');
-        $container->register('Database', function() use ($config) {
-            return new MySQLDatabase($config);
-        });
-        $modelResolver = new ModelResolver($container);
-        $container->register('App\Model\User', function() use ($container, $modelResolver) {
-            return new \App\Model\User($container->resolve('Database'), $modelResolver);
-        });
-        $this->user = $modelResolver->get('User');
-        $this->session = $session;
+        $this->setContainer($container);
+        $this->user = $this->container->resolve('ModelResolver')->get('User');
+        $this->session = $this->container->resolve('SessionInterface');
     }
     /**
      * Determine si l'utilisateur est connecté
