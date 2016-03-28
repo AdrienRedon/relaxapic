@@ -1,36 +1,33 @@
 var $ = require("jquery");
-var selectedTypePatho = [];
 
 $(function() {
-    $(".drop_select").on("click", function() {
-        var $container  = $(this).parent().parent();
-        var $liste = $container.find('.type_patho_select');
+
+    var selectedTypePatho = [];
+    var $liste = $(".type_patho_select");
+    var $container = $liste.parent();
+    var $titleContainer = $container.find('.type_patho_title__container');
+
+    /**
+     * Toggle Dropdown multiselect list
+     */
+    $container.on("click", ".drop_select", function() {
         var $title = $(this).parent();
 
-        if ($title.hasClass('active')) {
-
-            $title.removeClass('active');
-            $liste.slideUp(400);
-
-        } else {
-
-            $liste.show();
-            $title.addClass('active');
-
-            $liste.slideDown(400);
-        }
+        $titleContainer.toggleClass('active');
+        $liste.slideToggle(300);
     });
     
-     $(".type_patho_select .option_item").on("click", function() {
+    /**
+     * Add or remove item
+     */
+     $(".type_patho_select").on("click", ".option_item", function() {
         var $option = $(this);
-        var $container  = $(this).parent().parent();
-        var $liste = $(this).parent();
-        var $title = $container.find('.type_patho__title');
+        var $title = $titleContainer.find('.type_patho__title');
         var html = '';
 
         // on ajoute si ce n'est pas déjà ajouté
         var exist = $.grep(selectedTypePatho, function(e){ return e.id == $option.val(); });
-        if (exist.length === 0) {
+        if (! exist.length) {
             selectedTypePatho.push({
                 id : $option.val(), 
                 val : $option.html()
@@ -40,24 +37,16 @@ $(function() {
         }
 
         if (selectedTypePatho.length) {
-
             for (var i = 0; i < selectedTypePatho.length; i++) {
                 html += selectedTypePatho[i].val;
                 html += ', ';
             }
             html = html.substr(0, html.length - 2);
-            $title.html(html);
-            $liste.slideUp(400);
-
         } else {
-
-            html += 'Types de pathologie';
-            $title.html(html);
-            
-            $liste.show();
-            $title.addClass('active');
-
-            $liste.slideDown(400);
+            html = 'Types de pathologie';
         }
+        $title.html(html);
+        $titleContainer.removeClass('active');
+        $liste.slideUp(300);
     });
 });
