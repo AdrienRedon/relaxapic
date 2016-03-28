@@ -1,5 +1,5 @@
 {include file="templates/header.tpl" size="big" title=""}
 
-{include file="Page/home.tpl"}
+{include file="templates/content/home.tpl"}
 
 {include file="templates/footer.tpl"}
