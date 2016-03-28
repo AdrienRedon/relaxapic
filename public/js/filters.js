@@ -22,17 +22,26 @@ $(function() {
     });
     
      $(".type_patho_select .option_item").on("click", function() {
+        var $option = $(this);
         var $container  = $(this).parent().parent();
         var $liste = $(this).parent();
-        
-        selectedTypePatho.push({
-            id : $(this).val(), 
-            val : $(this).html()
-        });
-        
         var $title = $container.find('.type_patho__title');
-
         var html = '';
+
+        // on ajoute si ce n'est pas déjà ajouté
+        var exist = $.grep(selectedTypePatho, function(e){ return e.id == $option.val(); });
+        console.log(selectedTypePatho);
+        console.log(exist);
+        if (exist.length === 0) {
+            selectedTypePatho.push({
+                id : $option.val(), 
+                val : $option.html()
+            });
+        } else {
+            selectedTypePatho.splice(exist, 1);
+        }
+        
+
 
         if (selectedTypePatho.length) {
 
