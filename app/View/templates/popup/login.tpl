@@ -4,7 +4,7 @@
         <label for="login_mail">
             Adresse mail
         </label>
-        <input type="mail" name="mail" id="login_mail" />
+        <input type="email" name="mail" id="login_mail" />
     </div>
     <div>
         <label for="login_password">
