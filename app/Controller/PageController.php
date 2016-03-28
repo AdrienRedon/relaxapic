@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use App\Core\Controller\Controller;
-use App\Libs\Auth;
-use App\Libs\Session;
 use App\Validator\LoginValidator;
 use App\Validator\SigninValidator;
 use App\Core\DependencyInjection\ContainerInterface;
@@ -16,7 +14,7 @@ class PageController extends Controller
     public function __construct(ContainerInterface $container = null)
     {
         parent::__construct($container);
-        $this->auth = new Auth($this->container->resolve('SessionInterface'));
+        $this->auth = $this->container->resolve('Auth');
     }
 
     public function index()
@@ -42,7 +40,7 @@ class PageController extends Controller
             $this->redirect->backWithInput($_POST);
         }
         if ($this->auth->attempt($_POST['mail'], $_POST['password'])) {
-            $this->admin();
+            $this->index();
         } else {
             $this->flash->set('login incorrect');
             $this->redirect->backWithInput($_POST);
