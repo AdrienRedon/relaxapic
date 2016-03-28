@@ -36,8 +36,7 @@ $.fn.multiselect = function() {
             });
         } else {
             selected = selected.filter(function(el) {
-                console.log(el.id);
-                return el.id !== $option.val()
+                return el.id !== $option.val();
             });
         }
 
