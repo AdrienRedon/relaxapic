@@ -2,13 +2,13 @@
     
     <form class="filters__container">
         <div class="type_patho__container">
-            <div class="type_patho_title__container" >
-                <div class="type_patho__title">
+            <div class="title__container" >
+                <div class="title">
                     Types de pathologie
                 </div>
-                <a class="drop_select" data-type="typePatho"><i class="icon icon-down-open"></i></a>
+                <a class="drop_select"><i class="icon icon-down-open"></i></a>
             </div>
-            <select class="type_patho_select" multiple>
+            <select class="multiselect" multiple>
                 <option class="option_item" value="1">Pathologies de méridien</option>
                 <option class="option_item" value="2">Pathologies d’organe/viscère (tsang/fu)</option>
                 <option class="option_item" value="3">Pathologies des tendino-musculaires (jing jin)</option>

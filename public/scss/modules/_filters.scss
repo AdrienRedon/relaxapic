@@ -21,7 +21,7 @@
             border-radius: 3px;
             overflow: hidden;
             
-            .type_patho_title__container {
+            .title__container {
                 display:flex;
                 height: 40px;
                 background-color: #fefefe;
@@ -30,7 +30,7 @@
 
                 transition: background-color 0.3s;
                 
-                .type_patho__title {
+                .title {
                     flex: 2;
                     align-self: center;
                     margin-left: 10px;
@@ -60,7 +60,7 @@
                 }
             }
             
-            .type_patho_select {
+            .multiselect {
                 display: none;
                 position: absolute;
                 height: 150px;
