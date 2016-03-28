@@ -12,7 +12,7 @@
         flex-direction: column;
         align-items: center;
     
-        .type_patho__container {
+        .type_patho__container, .meridien__container, .caracteristiques__container {
             display: flex;
             flex-direction: column;
             width: 80%;
@@ -63,22 +63,20 @@
             .multiselect {
                 display: none;
                 position: absolute;
-                height: 150px;
+                height: auto;
                 width: 40%;
                 outline:none;
+
+                -webkit-appearance: none; // For Safari
+                font-size: 0.9rem;
                 
                 &:focus {
                     outline-style: none;
                 }
                 
-                .option_item{
-                    font-size: 0.9rem;
-                    padding:10px 10px 0 10px;
+                .option_item {
+                    padding: 10px;
                     color: #606060;
-                    
-                    &:selected{
-                        background-color: red;
-                    }
                 }
             }
         }

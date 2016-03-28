@@ -6,11 +6,17 @@ use App\Core\Controller\Controller;
 
 class TypePathoController extends Controller
 {
+    /**
+     * Retourne les pathologies associées à un type
+     * @param  int $idT
+     */
     public function getListePatho($idT) 
     {
         $typePatho = $this->model->get('TypePatho');
+
+        $typesPatho = $typePatho->all()->toArray();
         $pathos = $typePatho->getListePatho($idT)->toArray();
-        $this->view->render('ajax/patho', compact('pathos'));
+        $this->view->render('ajax/patho', compact('typesPatho', 'pathos'));
     }
 
     /**
