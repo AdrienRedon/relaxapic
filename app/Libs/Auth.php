@@ -4,10 +4,6 @@ namespace App\Libs;
 
 use App\Core\DependencyInjection\ContainerAware;
 use App\Core\DependencyInjection\ContainerInterface;
-use App\Core\Model\ModelResolver;
-use App\Core\Database\MySQLDatabase;
-use App\Core\Config;
-use App\Libs\SessionInterface;
 
 class Auth extends ContainerAware
 {
