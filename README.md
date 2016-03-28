@@ -5,12 +5,13 @@ CPE Web Project
 
 To install:
 
-You must have composer installed.
+First, you must have composer and npm installed.
 
 ```shell
 git clone https://github.com/AdrienRedon/relaxapic.git
 cd relaxapic
 composer install
+npm install
 ```
 
 ## Documentation
