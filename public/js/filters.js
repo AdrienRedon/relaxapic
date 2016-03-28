@@ -30,8 +30,6 @@ $(function() {
 
         // on ajoute si ce n'est pas déjà ajouté
         var exist = $.grep(selectedTypePatho, function(e){ return e.id == $option.val(); });
-        console.log(selectedTypePatho);
-        console.log(exist);
         if (exist.length === 0) {
             selectedTypePatho.push({
                 id : $option.val(), 
@@ -40,8 +38,6 @@ $(function() {
         } else {
             selectedTypePatho.splice(exist, 1);
         }
-        
-
 
         if (selectedTypePatho.length) {
 
@@ -65,42 +61,3 @@ $(function() {
         }
     });
 });
-
-
-
-
-
-/*
-// define somewhere to store
-// the values currently selected
-var selected = [];
-
-// grab the element we'll be listening
-// for changes on, in this case 
-// .multiselect
-var select = document.querySelector('.multiselect');
-
-// we'll output the value somewhere for debugging purposes
-var debug = document.querySelector('.output');
-
-var currently_selected = document.querySelectorAll('.selected-item');
-
-// set up an event listener to listen for
-// a change in value of our input
-select.addEventListener('change', function(event) {
-    var current = this.value;
-  
-  // we'll check our currently selected array and
-  // prevent duplicate values
-  for(var option = 0; option < selected.length; option++) {
-    if(selected[option] == current) {
-        console.log('Attempt to append a duplicate value prevented.');
-            return;
-    }
-  }
-  
-  // otherwise, we'll push the
-  // selected value to our array
-    selected.push(this.value);
-  debug.innerHTML += '<li class="selected-item">' + this.value + '</li>';
-});*/
