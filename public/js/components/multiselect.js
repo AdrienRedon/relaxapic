@@ -1,3 +1,5 @@
+var $ = require("jquery");
+
 $.fn.multiselect = function() {
 
     var selected = [];

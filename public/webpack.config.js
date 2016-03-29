@@ -10,22 +10,16 @@ module.exports = {
   },
   output: {
     path: __dirname + "/js/dist",
-    filename: "[name].min.js"
+    filename: "[name].min.js",
   },
   modulesDirectories: [
-      "package_modules",
-      "./js/",
-      "node_modules"
-    ],
+    "package_modules",
+    "./js/",
+    "node_modules"
+  ],
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-    new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery",
-        "window.jQuery": "jquery"
-    })
-  ],
-  loaders: {test: /\.js$/, loader: 'expose?jQuery!expose?$'}
+  ]
 };

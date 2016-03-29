@@ -1,4 +1,5 @@
-require('expose?$!expose?jQuery!jquery');
+var $ = require("jquery");
+
 require('./components/multiselect');
 
 $('.type_patho__container').multiselect();

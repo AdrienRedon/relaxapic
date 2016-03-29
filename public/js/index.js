@@ -1,4 +1,5 @@
-require('expose?$!expose?jQuery!jquery');
+var $ = require("jquery");
+
 require('./components/popup');
 
 $('.login__popup').popup('#login__button');

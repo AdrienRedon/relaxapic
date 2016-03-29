@@ -1,3 +1,5 @@
+var $ = require("jquery");
+
 $.fn.popup = function(button) {
 
     var $body = $('body');
