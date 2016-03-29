@@ -24,11 +24,15 @@ npm install
 - for the validators: app/Validator
 - for utilities classes: app/Libs
 
-### Naming conventions:
+### File's Name conventions:
 - for a controller: {controllerName}Controller.php
 - for a model: {modelName}.php
 - for a view: {controllerMethodName}.tpl
 - for a validator: {validatorName}Validator.php
+
+### CSS norms
+- BEM for classname
+- SMACCS for architecture
 
 ## Contributors
 
