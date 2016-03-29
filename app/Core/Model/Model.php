@@ -108,16 +108,16 @@ class Model extends ContainerAware
             {
                 if(isset($this->$field))
                 {
-                    $sql .= "$field, ";
+                    $sql .= "$field,";
                 }
             }
-            $sql = substr($sql, 0, -2);
+            $sql = rtrim($sql, ',');
             $sql .= ") VALUES (";
             foreach ($this->fields as $field) 
             {
                 if(isset($this->$field))
                 {
-                    $sql .= ":$field, ";
+                    $sql .= ":$field,";
                     $args[$field] = $this->$field;
                 }
             }
@@ -127,24 +127,24 @@ class Model extends ContainerAware
             unset($data['id']);
             foreach ($data as $k => $v) 
             {
-                $sql .= "$k, ";
+                $sql .= "$k,";
             }
             $sql = substr($sql, 0, -2);
             $sql .= ") VALUES (";
             foreach ($data as $field => $value) 
             {
-                $sql .= ":$field, ";
+                $sql .= ":$field,";
                 $args[$field] = $value;
             }
         }
         
         if($timestamps)
         {
-            $sql .= "created_at = ?,";
+            $sql .= "created_at=?,";
             $args['created_at'] = date('d/m/Y H:i:s');
         }
         
-        $sql = substr($sql, 0, -2);
+        $sql = rtrim($sql, ',');
         $sql .= ")";
         $this->id = $this->db->execute($sql, $args); // set the id for the new record
     }
@@ -162,7 +162,7 @@ class Model extends ContainerAware
             {
                 if(isset($this->field))
                 {
-                    $sql .= "$field=?, ";
+                    $sql .= "$field=?,";
                 }
             }
         } 
@@ -172,17 +172,17 @@ class Model extends ContainerAware
             {
                 if($field != 'id')
                 {
-                    $sql .= "$field=?, ";
+                    $sql .= "$field=?,";
                 }
             }
         }
         if($this->timestamps)
         {
-            $sql .= "updated_at=?, ";
+            $sql .= "updated_at=?,";
             $data[] = date('d/m/Y H:i:s');
         }
         
-        $sql = substr($sql, 0, -2);
+        $sql = rtrim($sql, ',');
         $sql .= " WHERE id=?";
         if(!isset($data['id']))
         {
