@@ -41,6 +41,7 @@
             </div>
         </footer>
 
-        <script type="text/javascript" src="{WEBROOT}js/app.min.js"></script>
+        <script type="text/javascript" src="{WEBROOT}js/dist/index.min.js"></script>
+        <script type="text/javascript" src="{WEBROOT}js/dist/patho.min.js"></script>
     </body>
 </html>

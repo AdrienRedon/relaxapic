@@ -22,5 +22,8 @@
   "dependencies": {
     "jquery": "^2.2.2",
     "webpack": "^1.12.14"
+  },
+  "devDependencies": {
+    "expose-loader": "^0.7.1"
   }
 }

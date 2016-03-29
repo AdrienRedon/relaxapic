@@ -1,5 +1,3 @@
-var $ = require("jquery");
-
 $.fn.multiselect = function() {
 
     var selected = [];
@@ -12,8 +10,6 @@ $.fn.multiselect = function() {
      * Toggle Dropdown multiselect list
      */
     this.on("click", ".drop_select", function() {
-        var $title = $(this).parent();
-
         $titleContainer.toggleClass('active');
         $liste.slideToggle(300);
     });

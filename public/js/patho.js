@@ -1,4 +1,9 @@
-var $ = require("jquery");
+require('expose?$!expose?jQuery!jquery');
+require('./components/multiselect');
+
+$('.type_patho__container').multiselect();
+$('.meridien__container').multiselect();
+$('.caracteristiques__container').multiselect();
 
 $(function() {
 
