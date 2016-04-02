@@ -24,4 +24,7 @@ $router->get('/getSymptomesByPatho/:idP', 'SymptomeController@getSymptomesByPath
  * Filters
  */
 
-$router->get('/getTypesPatho/pathos/:pathos/meridiens/:meridiens/caracteristiques/:caracteristiques', 'TypePathoController@getTypesPathoFiltered');
+$router->get('/getTypesPatho/pathos/:pathos', 'TypePathoController@getTypesPathoFiltered');
+$router->get('getListePatho/:id/meridiens/:meridiens/caracteristiques/:caracteristiques', 'TypePathoController@getListePathoFiltered');
+$router->get('getListePatho/:id/meridiens/:meridiens', 'TypePathoController@getListePathoFiltered');
+$router->get('getListePatho/:id/caracteristiques/:caracteristiques', 'TypePathoController@getListePathoFilteredWithoutMeridiens');

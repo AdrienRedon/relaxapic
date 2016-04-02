@@ -14,9 +14,24 @@ class TypePathoController extends Controller
     {
         $typePatho = $this->model->get('TypePatho');
 
-        $typesPatho = $typePatho->all()->toArray();
         $pathos = $typePatho->getListePatho($idT)->toArray();
-        $this->view->render('ajax/patho', compact('typesPatho', 'pathos'));
+        $this->view->render('ajax/patho', compact('pathos'));
+    }
+
+    public function getListePathoFiltered($idT, $meridiens, $caracteristiques = null)
+    {
+        $typePatho = $this->model->get('TypePatho');
+
+        $meridiens = explode(',', $meridiens);
+        $caracteristiques = explode(',', $caracteristiques);
+
+        $pathos = $typePatho->getListePathoFiltered($idT, $meridiens, $caracteristiques)->toArray();
+        $this->view->render('ajax/patho', compact('pathos'));
+    }
+
+    public function getListePathoFilteredWithoutMeridiens($idT, $caracteristiques)
+    {
+        $this->getListePathoFiltered($idT, null, $caracteristiques);
     }
 
     /**
@@ -35,10 +50,11 @@ class TypePathoController extends Controller
         $this->view->render('ajax/typePatho', compact('typesPatho'));
     }
 
-    public function getTypesPathoFiltered($pathos, $meridiens, $caracteristiques)
+    public function getTypesPathoFiltered($pathos)
     {
-        $meridiens = explode(',', $meridiens);
-        $caracteristiques = explode(',', $caracteristiques);
-        die(var_dump($pathos, $meridiens, $caracteristiques));
+        $typePatho = $this->model->get('TypePatho');
+
+        $typesPatho = $typePatho->getTypePatho($pathos)->first();
+        die(json_encode($typesPatho->idT));
     }
 }

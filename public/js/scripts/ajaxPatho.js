@@ -21,8 +21,19 @@ $(function() {
         var $container  = $(this).parent().parent();
         var $liste = $container.find('.pathologies__container');
         var $title = $(this).parent();
+
+        var url = "getListePatho/" + $container.data('id') + "/";
+
+        if ($container.data('merdiens')) {
+            url += "meridiens/" + $container.data('merdiens');
+        }
+        if ($container.data('caracteristiques')) {
+            console.log($container.data('caracteristiques'));
+            url += "caracteristiques/" + $container.data('caracteristiques');
+        }
+
         $.ajax({
-            url: "getListePatho/" + $(this).data('id'),
+            url: url,
             method: 'get'
         }).done(function(response) {
 
