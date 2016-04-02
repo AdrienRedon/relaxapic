@@ -34,4 +34,9 @@ class TypePathoController extends Controller
 
         $this->view->render('ajax/typePatho', compact('typesPatho'));
     }
+
+    public function getTypesPathoFiltered($pathos, $meridiens, $caracteristiques)
+    {
+        die(var_dump($pathos, $meridiens, $caracteristiques));
+    }
 }

@@ -1,3 +1,3 @@
 require('./scripts/popup');
-require('./scripts/multiselect');
+require('./scripts/filters');
 require('./scripts/ajaxPatho');

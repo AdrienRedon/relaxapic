@@ -1,10 +1,10 @@
 var $ = require("jquery");
 
-$.fn.multiselect = function() {
+$.fn.select = function() {
 
 // private
 
-    var selected = [];
+    var selected;
     var $liste = this.children('select');
     var $titleContainer = this.find('.title__container');
     var $title = $titleContainer.find('.title');
@@ -25,27 +25,14 @@ $.fn.multiselect = function() {
         var $option = $(this);
         var html = '';
 
-        // on ajoute si ce n'est pas déjà ajouté
-        var exist = $.grep(selected, function(e){ 
-            return e.id == $option.val(); 
-        });
-        if (! exist.length) {
-            selected.push({
-                id : $option.val(), 
-                val : $option.html()
-            });
-        } else {
-            selected = selected.filter(function(el) {
-                return el.id !== $option.val();
-            });
-        }
+        // on modifie le selected
+        selected = {
+            id : $option.val(), 
+            val : $option.html()
+        };
 
-        if (selected.length) {
-            for (var i = 0; i < selected.length; i++) {
-                html += selected[i].val;
-                html += ', ';
-            }
-            html = html.substr(0, html.length - 2);
+        if (selected) {
+                html = selected.val;
         } else {
             html = titleContent;
         }
