@@ -11,6 +11,13 @@ class MeridienController extends Controller
         $meridien = $this->model->get('Meridien');
 
         $meridiens = $meridien->getMeridienByPatho($idP)->toArray();
-        $this->view->render('ajax/meridien', compact('meridiens'));
+        $list_alt = [
+            'b' => 'bois',
+            'e' => 'eau',
+            'f' => 'feu',
+            'm' => 'métal',
+            't' => 'terre'
+        ];
+        $this->view->render('ajax/meridien', compact('meridiens', 'list_alt'));
     }
 }
