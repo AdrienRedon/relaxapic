@@ -37,6 +37,8 @@ class TypePathoController extends Controller
 
     public function getTypesPathoFiltered($pathos, $meridiens, $caracteristiques)
     {
+        $meridiens = explode(',', $meridiens);
+        $caracteristiques = explode(',', $caracteristiques);
         die(var_dump($pathos, $meridiens, $caracteristiques));
     }
 }
