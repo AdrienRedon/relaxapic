@@ -27,16 +27,16 @@ class ControllerResolver
      */
     public function getAction($name)
     {
-        $controllerParams = explode('@', $name);
+        list($controller, $method) = explode('@', $name);
 
         try {  
-            $controller = $this->container->resolve('App\Controller\\' . $controllerParams[0]);
+            $controller = $this->container->resolve('App\Controller\\' . $controller);
         } catch (ServiceNotFoundException $e) {
-            $filePath = ROOT . 'app/Controller/' . $controllerParams[0] . '.php';
+            $filePath = ROOT . 'app/Controller/' . $controller . '.php';
             if (file_exists($filePath)) {
                 include_once($filePath);
 
-                $controllerName = 'App\Controller\\' . $controllerParams[0];
+                $controllerName = 'App\Controller\\' . $controller;
                 $controller = new $controllerName($this->container);
                 $this->container->register($controllerName, $controller);
             } else {
@@ -44,14 +44,14 @@ class ControllerResolver
             }
         }
 
-        if (!method_exists($controller, $controllerParams[1])) {
-            throw new MethodNotFoundException($controllerParams[1]);
+        if (!method_exists($controller, $method)) {
+            throw new MethodNotFoundException($method);
         }
 
         if ($controller instanceof ContainerAwareInterface) {
             $controller->setContainer($this->container);
         }
 
-        return array($controller, $controllerParams[1]);
+        return array($controller, $method);
     }
 }
