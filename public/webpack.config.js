@@ -6,7 +6,8 @@ module.exports = {
   devtool: debug ? "inline-sourcemap" : null,
   entry: {
     index: "./js/index.js",
-    patho: "./js/patho.js"
+    patho: "./js/patho.js",
+    salons: "./js/salons.js",
   },
   output: {
     path: __dirname + "/js/dist",

@@ -41,5 +41,9 @@
             </div>
         </footer>
 
+        {if isset($js)}
+            <script type="text/javascript" src="{WEBROOT}js/dist/{$js}.min.js"></script>
+        {/if}
+
     </body>
 </html>

@@ -5,7 +5,5 @@
 <div class="categories__container">
     
 </div>
-
-<script type="text/javascript" src="{WEBROOT}js/dist/patho.min.js"></script>
     
-{include file="templates/footer.tpl"}
+{include file="templates/footer.tpl" js="patho"}
