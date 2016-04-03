@@ -24,7 +24,7 @@ npm install
 - for the validators: app/Validator
 - for utilities classes: app/Libs
 
-### File's Name conventions:
+### Filename conventions:
 - for a controller: {controllerName}Controller.php
 - for a model: {modelName}.php
 - for a view: {controllerMethodName}.tpl
