@@ -80,8 +80,6 @@ $(function() {
                 $infoContainer.hide();
                 $title.addClass('active');
 
-                console.log(response);
-
                 $meridienContainer.html(response);
                 $infoContainer.slideDown(300);
             }
