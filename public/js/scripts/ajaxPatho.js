@@ -22,14 +22,13 @@ $(function() {
         var $liste = $container.find('.pathologies__container');
         var $title = $(this).parent();
 
-        var url = "getListePatho/" + $container.data('id') + "/";
+        var url = "getListePatho/" + $container.data('id');
 
-        if ($container.data('merdiens')) {
-            url += "meridiens/" + $container.data('merdiens');
+        if ($container.attr('data-meridiens')) {
+            url += "/meridiens/" + $container.attr('data-meridiens');
         }
-        if ($container.data('caracteristiques')) {
-            console.log($container.data('caracteristiques'));
-            url += "caracteristiques/" + $container.data('caracteristiques');
+        if ($container.attr('data-caracteristiques')) {
+            url += "/caracteristiques/" + $container.attr('data-caracteristiques');
         }
 
         $.ajax({
@@ -67,7 +66,7 @@ $(function() {
 
         // Meridien
         $.ajax({
-            url: "getMeridienByPatho/" + $(this).data('idp'),
+            url: "getMeridienByPatho/" + $(this).attr('data-idp'),
             method: 'get',
         }).done(function(response) {
 
@@ -91,7 +90,7 @@ $(function() {
 
         // Symptomes
         $.ajax({
-            url: "getSymptomesByPatho/" + $(this).data('idp'),
+            url: "getSymptomesByPatho/" + $(this).attr('data-idp'),
             method: 'get',
         }).done(function(response) {
             $symptomeContainer.html(response);

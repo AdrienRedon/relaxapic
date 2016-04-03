@@ -39,15 +39,22 @@ class TypePatho extends Model
                 inner join pathoTypePatho as pTP on p.type = pTP.code
                 inner join typePatho as tP on pTP.idT = tP.idT
                 where tP.idT = $idT";
-
-        if (count($caracteristiques) > 0) {
-            $sql .= " and";
+                
+        if (! empty($meridiens) && ! empty($meridiens[0])) {
+            $sql .= " and (";
+            foreach($meridiens as $meridien) {
+                $sql .= " p.mer = '$meridien' or";
+            }
+            $sql = substr($sql, 0, -2) . ')';
         }
-        foreach ($caracteristiques as $c) {
-            $sql .= " `desc` like '%{$this->caracteristiques[$c]}%'  or";
-        }    
 
-        $sql = substr($sql, 0, -2);
+        if (! empty($caracteristiques) && ! empty($caracteristiques[0])) {
+            $sql .= " and (";
+            foreach ($caracteristiques as $c) {
+                $sql .= " `desc` like '%{$this->caracteristiques[$c]}%'  or";
+            }    
+            $sql = substr($sql, 0, -2) . ')';
+        }
 
         $data = $this->db->query($sql);
         return $data;

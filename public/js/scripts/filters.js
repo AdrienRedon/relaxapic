@@ -13,7 +13,6 @@ $('body').on('submit', '.filters__container', function(e) {
     var selectedMeridiens = multiselectMeridiens.getSelected();
     var selectedCaracteristiques = multiselectCaracteristiques.getSelected();
 
-
     var url = 'getTypesPatho/pathos';
 
     if (selectedPatho) {
@@ -40,6 +39,7 @@ $('body').on('submit', '.filters__container', function(e) {
                 var resultCaracteristiques = selectedCaracteristiques.map(function(el) {
                     return el.id;
                 });
+
                 $(this).fadeIn(400);
                 $(this).attr('data-meridiens', resultMeridiens.join());
                 $(this).attr('data-caracteristiques', resultCaracteristiques.join());
