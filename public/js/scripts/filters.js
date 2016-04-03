@@ -29,6 +29,8 @@ $('body').on('submit', '.filters__container', function(e) {
                 $(this).attr('data-meridiens', null);
                 $(this).attr('data-caracteristiques', null);
                 $(this).hide();
+                $(this).find('.pathologies__container').hide();
+                $(this).find('.category_title__container').removeClass('active');
         });
 
         $('.category__container').each(function() {
