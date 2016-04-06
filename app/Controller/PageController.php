@@ -67,7 +67,13 @@ class PageController extends Controller
 
     public function pathologies()
     {
-        $this->view->render('Page/patho');
+        $typePatho = $this->model->get('TypePatho');
+        $meridien = $this->model->get('Meridien');
+
+        $typesPatho = $typePatho->all()->toArray();
+        $meridiens = $meridien->all()->toArray();
+
+        $this->view->render('Page/patho', compact('typesPatho', 'meridiens'));
     }
 
     public function salons()

@@ -2,4 +2,4 @@
 
 {include file="templates/content/home.tpl"}
 
-{include file="templates/footer.tpl"}
+{include file="templates/footer.tpl" js="index"}
