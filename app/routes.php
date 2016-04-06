@@ -15,7 +15,6 @@ $router->get('/salons', 'PageController@salons');
 $router->get('/membres', 'PageController@membres');
 
 $router->get('/getTypesPatho', 'TypePathoController@getTypesPatho');
-$router->get('/getTypesPatho/:id', 'TypePathoController@getTypesPatho');
 $router->get('/getListePatho/:id', 'TypePathoController@getListePatho');
 $router->get('/getMeridienByPatho/:idP', 'MeridienController@getMeridienByPatho');
 $router->get('/getSymptomesByPatho/:idP', 'SymptomeController@getSymptomesByPatho');
@@ -25,6 +24,16 @@ $router->get('/getSymptomesByPatho/:idP', 'SymptomeController@getSymptomesByPath
  */
 
 $router->get('/getTypesPatho/pathos/:pathos', 'TypePathoController@getTypesPathoFiltered');
-$router->get('getListePatho/:id/meridiens/:meridiens/caracteristiques/:caracteristiques', 'TypePathoController@getListePathoFiltered');
-$router->get('getListePatho/:id/meridiens/:meridiens', 'TypePathoController@getListePathoFiltered');
-$router->get('getListePatho/:id/caracteristiques/:caracteristiques', 'TypePathoController@getListePathoFilteredWithoutMeridiens');
+$router->get('/getTypesPatho/pathos/:pathos/meridiens/:meridiens', 'TypePathoController@getTypesPathoFiltered');
+$router->get('/getTypesPatho/pathos/:pathos/meridiens/:meridiens/caracteristiques/:caracteristiques', 'TypePathoController@getTypesPathoFiltered');
+
+$router->get('/getTypesPatho/pathos/:pathos/caracteristiques/:caracteristiques', 'TypePathoController@getTypesPathoFilteredWithoutMeridien');
+
+$router->get('/getTypesPatho/meridiens/:meridiens/caracteristiques/:caracteristiques', 'TypePathoController@getTypesPathoFilteredWithoutPatho');
+$router->get('/getTypesPatho/meridiens/:meridiens', 'TypePathoController@getTypesPathoFilteredWithoutPatho');
+
+$router->get('/getTypesPatho/caracteristiques/:caracteristiques', 'TypePathoController@getTypesPathoFilteredWithCaracteristiques');
+
+$router->get('/getListePatho/:id/meridiens/:meridiens/caracteristiques/:caracteristiques', 'TypePathoController@getListePathoFiltered');
+$router->get('/getListePatho/:id/meridiens/:meridiens', 'TypePathoController@getListePathoFiltered');
+$router->get('/getListePatho/:id/caracteristiques/:caracteristiques', 'TypePathoController@getListePathoFilteredWithoutMeridiens');

@@ -13,10 +13,24 @@ $('body').on('submit', '.filters__container', function(e) {
     var selectedMeridiens = multiselectMeridiens.getSelected();
     var selectedCaracteristiques = multiselectCaracteristiques.getSelected();
 
-    var url = 'getTypesPatho/pathos';
+    var url = 'getTypesPatho';
 
     if (selectedPatho) {
-        url += '/' + selectedPatho.id;
+        url += '/pathos/' + selectedPatho.id;
+    }
+
+    if (selectedMeridiens.length) {
+        url += '/meridiens';
+        selectedMeridiens.forEach(function(el) {
+            url += '/' + el.id;
+        });
+    }
+
+    if (selectedCaracteristiques.length) {
+        url += '/caracteristiques';
+        selectedCaracteristiques.forEach(function(el) {
+            url += '/' + el.id;
+        });
     }
 
     $.ajax({
@@ -24,6 +38,9 @@ $('body').on('submit', '.filters__container', function(e) {
         method: 'get'
     }).done(function(data) {
         data = $.parseJSON(data);
+        data = data.map(function(el) {
+            return parseInt(el.idT);
+        });
 
         $('.category__container').each(function() {
                 $(this).attr('data-meridiens', null);
@@ -33,8 +50,11 @@ $('body').on('submit', '.filters__container', function(e) {
                 $(this).find('.category_title__container').removeClass('active');
         });
 
+        console.log(data);  
         $('.category__container').each(function() {
-            if(parseInt($(this).data('id')) == parseInt(data)) {
+            console.log(parseInt($(this).data('id')));
+            console.log(data.indexOf(parseInt($(this).data('id'))));
+            if(data.indexOf(parseInt($(this).data('id'))) !== -1) {
                 var resultMeridiens = selectedMeridiens.map(function(el) {
                     return el.id;
                 });

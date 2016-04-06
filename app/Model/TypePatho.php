@@ -60,9 +60,33 @@ class TypePatho extends Model
         return $data;
     }
 
-    public function getTypePatho($idT)
+    public function getTypePatho($idT, $meridiens, $caracteristiques)
     {
-        $sql = "SELECT idT, name FROM typePatho WHERE idT = $idT";
+        $sql = "SELECT distinct tP.idT, tP.name FROM typePatho tP
+                inner join pathoTypePatho as pTP on tP.idT = pTP.idT
+                inner join patho as p on p.type = pTP.code
+         WHERE 1 = 1 AND (";
+
+        if (isset($idT)) {
+            $sql .= " idT = $idT ) AND (";
+        }
+
+        if (! empty($meridiens) && ! empty($meridiens[0])) {
+            foreach ($meridiens as $meridien) {
+                $sql .= " p.mer like '%$meridien%' OR";
+            }
+            $sql = substr($sql, 0, -3);
+            $sql .= ") AND (";
+        }
+
+        if (! empty($caracteristiques) && ! empty($caracteristiques[0])) {
+            foreach ($caracteristiques as $c) {
+                $sql .= " p.desc like '%{$this->caracteristiques[$c]}%' OR";
+            }
+            $sql = substr($sql, 0, -3);
+            $sql .= ") AND (";
+        }
+        $sql = substr($sql, 0, -6);
         $data = $this->db->query($sql);
         return $data;
     }

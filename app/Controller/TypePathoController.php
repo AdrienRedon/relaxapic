@@ -38,23 +38,37 @@ class TypePathoController extends Controller
      * Affiche tous les types de patho si pas d'id donné sinon le type de patho
      * @param  int $id 
      */
-    public function getTypesPatho($idT = null)
+    public function getTypesPatho()
     {
         $typePatho = $this->model->get('TypePatho');
-        if (isset($idT)) {
-            $typesPatho = $typePatho->where(['idT' => $idT])->toArray();
-        } else {
-            $typesPatho = $typePatho->all()->toArray();
-        }
+        $typesPatho = $typePatho->all()->toArray();
 
         $this->view->render('ajax/typePatho', compact('typesPatho'));
     }
 
-    public function getTypesPathoFiltered($pathos)
+    public function getTypesPathoFiltered($pathos, $meridiens = null, $caracteristiques = null)
     {
         $typePatho = $this->model->get('TypePatho');
 
-        $typesPatho = $typePatho->getTypePatho($pathos)->first();
-        die(json_encode($typesPatho->idT));
+        $meridiens = explode(',', $meridiens);
+        $caracteristiques = explode(',', $caracteristiques);
+
+        $typesPatho = $typePatho->getTypePatho($pathos, $meridiens, $caracteristiques)->toArray();
+        die(json_encode($typesPatho));
+    }
+
+    public function getTypesPathoFilteredWithoutMeridien($pathos, $caracteristiques)
+    {
+        $this->getTypesPathoFiltered($pathos, null, $caracteristiques);
+    }
+
+    public function getTypesPathoFilteredWithoutPatho($meridiens, $caracteristiques = null)
+    {
+        $this->getTypesPathoFiltered(null, $meridiens, $caracteristiques);
+    }
+
+    public function getTypesPathoFilteredWithCaracteristiques($caracteristiques)
+    {
+        $this->getTypesPathoFiltered(null, null, $caracteristiques);
     }
 }
