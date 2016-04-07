@@ -26,7 +26,7 @@ class CalculatriceController extends Controller
 
     public function division($a, $b)
     {
-        if ($b != 0) {
+        if ($b == 0) {
             echo 'Je sais pas faire';
             die();
         }
