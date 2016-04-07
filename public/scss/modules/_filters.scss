@@ -1,16 +1,23 @@
 /* /////////// FILTERS - START /////////// */
 .filters__wrapper {
     display: flex;
+    padding: 20px 0;
     justify-content: center;
     align-items: center;
+    background: url(../img/patho-header.jpg) center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
     
     .filters__container {
         
         display: flex;
+        padding: 20px 0;
         width: 50%;
-        background-color: #CACACA;
+        background-color: white;
         flex-direction: column;
         align-items: center;
+        border-radius: 8px;
+        @include shadow(1);
     
         .type_patho__container, .meridien__container, .caracteristiques__container {
             display: flex;
