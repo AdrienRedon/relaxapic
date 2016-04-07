@@ -37,3 +37,11 @@ $router->get('/getTypesPatho/caracteristiques/:caracteristiques', 'TypePathoCont
 $router->get('/getListePatho/:id/meridiens/:meridiens/caracteristiques/:caracteristiques', 'TypePathoController@getListePathoFiltered');
 $router->get('/getListePatho/:id/meridiens/:meridiens', 'TypePathoController@getListePathoFiltered');
 $router->get('/getListePatho/:id/caracteristiques/:caracteristiques', 'TypePathoController@getListePathoFilteredWithoutMeridiens');
+
+/**
+ * Calculatrice REST
+ */
+$router->get('/calculatrice/addition/:a/:b', 'CalculatriceController@addition');
+$router->get('/calculatrice/soustraction/:a/:b', 'CalculatriceController@soustraction');
+$router->get('/calculatrice/multiplication/:a/:b', 'CalculatriceController@multiplication');
+$router->get('/calculatrice/division/:a/:b', 'CalculatriceController@division');
