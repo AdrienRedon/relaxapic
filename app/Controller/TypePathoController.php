@@ -8,6 +8,7 @@ class TypePathoController extends Controller
 {
 
 // get Liste
+
     /**
      * Retourne les pathologies associées à un type
      * @param  int $idT
@@ -20,6 +21,13 @@ class TypePathoController extends Controller
         $this->view->render('ajax/patho', compact('pathos'));
     }
 
+    /**
+     * Retourne les pathologies associées à un types en fonction de filtres
+     * @param  int    $idT
+     * @param  string $meridiens
+     * @param  string $caracteristiques 
+     * @param  string $keyword
+     */
     public function getListePathoFiltered($idT, $meridiens, $caracteristiques, $keyword)
     {
         $typePatho = $this->model->get('TypePatho');
@@ -75,6 +83,13 @@ class TypePathoController extends Controller
         $this->view->render('ajax/typePatho', compact('typesPatho'));
     }
 
+    /**
+     * Affiche tous les type de patho selon les filtres
+     * @param  int    $pathos
+     * @param  string $meridiens
+     * @param  string $caracteristiques
+     * @param  string $keyword
+     */
     public function getTypesPathoFiltered($pathos, $meridiens, $caracteristiques, $keyword)
     {
         $typePatho = $this->model->get('TypePatho');

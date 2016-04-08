@@ -33,6 +33,14 @@ class TypePatho extends Model
         return $data;
     }
 
+    /**
+     * Retourne la liste des Patho pour un type de patho et des filtres
+     * @param  int    $idT
+     * @param  array  $meridiens
+     * @param  array  $caracteristiques
+     * @param  string $keyword
+     * @return Collection
+     */
     public function getListePathoFiltered($idT, $meridiens, $caracteristiques, $keyword)
     {
         $sql = "SELECT p.idP, p.desc from patho as p
@@ -70,6 +78,14 @@ class TypePatho extends Model
         return $data;
     }
 
+    /**
+     * Retourne la liste des types patho en fonction de filtres
+     * @param  int    $idT
+     * @param  array  $meridiens
+     * @param  array  $caracteristiques
+     * @param  string $keyword
+     * @return Collection
+     */
     public function getTypePatho($idT, $meridiens, $caracteristiques, $keyword)
     {
         $sql = "SELECT distinct tP.idT, tP.name FROM typePatho tP
