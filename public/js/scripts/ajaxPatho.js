@@ -30,6 +30,9 @@ $(function() {
         if ($container.attr('data-caracteristiques')) {
             url += "/caracteristiques/" + $container.attr('data-caracteristiques');
         }
+        if ($container.attr('data-keyword')) {
+            url += "/keyword/" + $container.attr('data-keyword');
+        }
 
         $.ajax({
             url: url,
