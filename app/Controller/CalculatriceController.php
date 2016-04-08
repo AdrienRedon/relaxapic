@@ -29,8 +29,9 @@ class CalculatriceController extends Controller
         if ($b == 0) {
             echo 'Je sais pas faire';
             die();
+        } else {
+            echo $a / $b;
+            die();
         }
-        echo $a / $b;
-        die();
     }
 }
