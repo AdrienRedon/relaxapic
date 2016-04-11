@@ -28,8 +28,8 @@ class TypePatho extends Model
         $sql = "SELECT idP, `desc` from patho as p
                 inner join pathoTypePatho as pTP on p.type = pTP.code
                 inner join typePatho as tP on pTP.idT = tP.idT
-                where tP.idT = :idT";
-        $data = $this->db->query($sql, compact('idT'));
+                where tP.idT = ?";
+        $data = $this->db->query($sql, [$idT]);
         return $data;
     }
 

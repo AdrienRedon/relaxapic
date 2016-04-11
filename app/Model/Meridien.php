@@ -22,7 +22,7 @@ class Meridien extends Model
                     select mer 
                       from patho 
                      where idP = ?)";
-        $data = $this->db->query($sql, compact($idP));
+        $data = $this->db->query($sql, [$idP]);
         return $data;
     }
 }

@@ -22,7 +22,7 @@ class Symptome extends Model
                  inner join patho on symptPatho.idP = patho.idP
                  inner join symptome on symptPatho.idS = symptome.idS
                  where patho.idP = ?";
-        $data = $this->db->query($sql, compact('idP'));
+        $data = $this->db->query($sql, [$idP]);
         return $data;
     }
 }
