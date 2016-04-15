@@ -12,6 +12,7 @@ $('body').on('submit', '.filters__container', function(e) {
     var selectedPatho = selectPatho.getSelected();
     var selectedMeridiens = multiselectMeridiens.getSelected();
     var selectedCaracteristiques = multiselectCaracteristiques.getSelected();
+    var keyword = $('#search-input').val();
 
     var url = 'getTypesPatho';
 
@@ -31,6 +32,10 @@ $('body').on('submit', '.filters__container', function(e) {
         selectedCaracteristiques.forEach(function(el) {
             url += '/' + el.id;
         });
+    }
+
+    if (keyword !== undefined && keyword.length > 0) {
+        url += '/keyword/' + keyword;
     }
 
     $.ajax({
@@ -65,6 +70,7 @@ $('body').on('submit', '.filters__container', function(e) {
                 $(this).fadeIn(400);
                 $(this).attr('data-meridiens', resultMeridiens.join());
                 $(this).attr('data-caracteristiques', resultCaracteristiques.join());
+                $(this).attr('data-keyword', keyword);
             }
         });
     });

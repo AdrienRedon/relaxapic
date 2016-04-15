@@ -28,22 +28,39 @@ class TypePatho extends Model
         $sql = "SELECT idP, `desc` from patho as p
                 inner join pathoTypePatho as pTP on p.type = pTP.code
                 inner join typePatho as tP on pTP.idT = tP.idT
-                where tP.idT = $idT";
-        $data = $this->db->query($sql);
+                where tP.idT = ?";
+        $data = $this->db->query($sql, [$idT]);
         return $data;
     }
 
-    public function getListePathoFiltered($idT, $meridiens, $caracteristiques)
+    /**
+     * Retourne la liste des Patho pour un type de patho et des filtres
+     * @param  int    $idT
+     * @param  array  $meridiens
+     * @param  array  $caracteristiques
+     * @param  string $keyword
+     * @return Collection
+     */
+    public function getListePathoFiltered($idT, $meridiens, $caracteristiques, $keyword)
     {
-        $sql = "SELECT idP, `desc` from patho as p
-                inner join pathoTypePatho as pTP on p.type = pTP.code
-                inner join typePatho as tP on pTP.idT = tP.idT
-                where tP.idT = $idT";
+        $args = array();
+        $length = 1;
+
+        $sql = "SELECT p.idP, p.desc from patho as p
+                inner join pathoTypePatho as pTP on pTP.code = p.type
+                inner join typePatho as tP on tP.idT = pTP.idT
+                inner join symptPatho as sP on sP.idP = p.idP
+                inner join symptome as s on s.idS = sP.idS
+                inner join keySympt as kS on kS.idS = s.idS
+                inner join keywords as k on k.idK = kS.idK
+                where tP.idT = ?";
+        $args[] = $idT;
                 
         if (! empty($meridiens) && ! empty($meridiens[0])) {
             $sql .= " and (";
             foreach($meridiens as $meridien) {
-                $sql .= " p.mer = '$meridien' or";
+                $sql .= " p.mer = ? or";
+                $args[] = $meridien;
             }
             $sql = substr($sql, 0, -2) . ')';
         }
@@ -51,29 +68,52 @@ class TypePatho extends Model
         if (! empty($caracteristiques) && ! empty($caracteristiques[0])) {
             $sql .= " and (";
             foreach ($caracteristiques as $c) {
-                $sql .= " `desc` like '%{$this->caracteristiques[$c]}%'  or";
+                $sql .= " p.desc like ? or";
+                $args[] = '%' .$this->caracteristiques[$c] .'%';
             }    
             $sql = substr($sql, 0, -2) . ')';
         }
 
-        $data = $this->db->query($sql);
+        if (isset($keyword) && ! empty($keyword)) {
+            $sql .= " and (k.name like ? or p.desc like ?)";
+            $args[] = '%' . $keyword . '%';
+            $args[] = '%' . $keyword . '%';
+        }
+
+        $sql .= ' group by p.idP';
+        $data = $this->db->query($sql, $args);
         return $data;
     }
 
-    public function getTypePatho($idT, $meridiens, $caracteristiques)
+    /**
+     * Retourne la liste des types patho en fonction de filtres
+     * @param  int    $idT
+     * @param  array  $meridiens
+     * @param  array  $caracteristiques
+     * @param  string $keyword
+     * @return Collection
+     */
+    public function getTypePatho($idT, $meridiens, $caracteristiques, $keyword)
     {
+        $args = array();
         $sql = "SELECT distinct tP.idT, tP.name FROM typePatho tP
                 inner join pathoTypePatho as pTP on tP.idT = pTP.idT
                 inner join patho as p on p.type = pTP.code
+                inner join symptPatho as sP on sP.idP = p.idP
+                inner join symptome as s on s.idS = sP.idS
+                inner join keySympt as kS on kS.idS = s.idS
+                inner join keywords as k on k.idK = kS.idK
          WHERE 1 = 1 AND (";
 
         if (isset($idT)) {
-            $sql .= " idT = $idT ) AND (";
+            $sql .= " tP.idT = ?) AND (";
+            $args[] = $idT;
         }
 
         if (! empty($meridiens) && ! empty($meridiens[0])) {
             foreach ($meridiens as $meridien) {
-                $sql .= " p.mer like '%$meridien%' OR";
+                $sql .= " p.mer like ? OR";
+                $args[] = '%' . $meridien . '%';
             }
             $sql = substr($sql, 0, -3);
             $sql .= ") AND (";
@@ -81,13 +121,22 @@ class TypePatho extends Model
 
         if (! empty($caracteristiques) && ! empty($caracteristiques[0])) {
             foreach ($caracteristiques as $c) {
-                $sql .= " p.desc like '%{$this->caracteristiques[$c]}%' OR";
+                $sql .= " p.desc like ? OR";
+                $args[] = '%' . $this->caracteristiques[$c] . '%';
             }
             $sql = substr($sql, 0, -3);
             $sql .= ") AND (";
         }
+
+        if (isset($keyword) and ! empty($keyword)) {
+            $sql .= " k.name like ? OR p.desc like ? ";
+            $args[] = '%' . $keyword . '%';
+            $args[] = '%' . $keyword . '%';
+            $sql .= ") AND (";
+        }
+
         $sql = substr($sql, 0, -6);
-        $data = $this->db->query($sql);
+        $data = $this->db->query($sql, $args);
         return $data;
     }
 }

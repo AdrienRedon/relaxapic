@@ -2,6 +2,8 @@
     
     <form class="filters__container">
 
+        <input type="text" name="search" id="search-input" placeholder="Symptômes ou pathologies" />
+
         <div class="type_patho__container">
             <div class="title__container" >
                 <div class="title">

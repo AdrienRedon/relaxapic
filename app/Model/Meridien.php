@@ -21,8 +21,8 @@ class Meridien extends Model
                  where code in (
                     select mer 
                       from patho 
-                     where idP = $idP)";
-        $data = $this->db->query($sql);
+                     where idP = ?)";
+        $data = $this->db->query($sql, [$idP]);
         return $data;
     }
 }

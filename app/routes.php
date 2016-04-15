@@ -23,17 +23,66 @@ $router->get('/getSymptomesByPatho/:idP', 'SymptomeController@getSymptomesByPath
  * Filters
  */
 
-$router->get('/getTypesPatho/pathos/:pathos', 'TypePathoController@getTypesPathoFiltered');
-$router->get('/getTypesPatho/pathos/:pathos/meridiens/:meridiens', 'TypePathoController@getTypesPathoFiltered');
-$router->get('/getTypesPatho/pathos/:pathos/meridiens/:meridiens/caracteristiques/:caracteristiques', 'TypePathoController@getTypesPathoFiltered');
+// getTypes
 
-$router->get('/getTypesPatho/pathos/:pathos/caracteristiques/:caracteristiques', 'TypePathoController@getTypesPathoFilteredWithoutMeridien');
+    // with patho
 
-$router->get('/getTypesPatho/meridiens/:meridiens/caracteristiques/:caracteristiques', 'TypePathoController@getTypesPathoFilteredWithoutPatho');
-$router->get('/getTypesPatho/meridiens/:meridiens', 'TypePathoController@getTypesPathoFilteredWithoutPatho');
+    $router->get('/getTypesPatho/pathos/:p', 'TypePathoController@getTypesPathoFilteredP');
 
-$router->get('/getTypesPatho/caracteristiques/:caracteristiques', 'TypePathoController@getTypesPathoFilteredWithCaracteristiques');
+    $router->get('/getTypesPatho/pathos/:p/meridiens/:m', 'TypePathoController@getTypesPathoFilteredPM');
+    $router->get('/getTypesPatho/pathos/:p/caracteristiques/:c', 'TypePathoController@getTypesPathoFilteredPC');
+    $router->get('/getTypesPatho/pathos/:p/keyword/:keyword', 'TypePathoController@getTypesPathoFilteredPK');
 
-$router->get('/getListePatho/:id/meridiens/:meridiens/caracteristiques/:caracteristiques', 'TypePathoController@getListePathoFiltered');
-$router->get('/getListePatho/:id/meridiens/:meridiens', 'TypePathoController@getListePathoFiltered');
-$router->get('/getListePatho/:id/caracteristiques/:caracteristiques', 'TypePathoController@getListePathoFilteredWithoutMeridiens');
+    $router->get('/getTypesPatho/pathos/:p/meridiens/:m/caracteristiques/:c', 'TypePathoController@getTypesPathoFilteredPMC');
+    $router->get('/getTypesPatho/pathos/:p/meridiens/:m/keyword/:k', 'TypePathoController@getTypesPathoFilteredPMK');
+    $router->get('/getTypesPatho/pathos/:p/caracteristiques/:c/keyword/:k', 'TypePathoController@getTypesPathoFilteredPCK');
+
+    $router->get('/getTypesPatho/pathos/:p/meridiens/:m/caracteristiques/:c/keyword/:k', 'TypePathoController@getTypesPathoFiltered');
+
+    // with meridiens
+
+    $router->get('/getTypesPatho/meridiens/:m', 'TypePathoController@getTypesPathoFilteredM');
+
+    $router->get('/getTypesPatho/meridiens/:m/caracteristiques/:c', 'TypePathoController@getTypesPathoFilteredMC');
+    $router->get('/getTypesPatho/meridiens/:m/keyword/:k', 'TypePathoController@getTypesPathoFilteredMK');
+
+    $router->get('/getTypesPatho/meridiens/:m/caracteristiques/:c/keyword/:k', 'TypePathoController@getTypesPathoFilteredMCK');
+
+    // with caracteristiques
+
+    $router->get('/getTypesPatho/caracteristiques/:c', 'TypePathoController@getTypesPathoFilteredC');
+
+    $router->get('/getTypesPatho/caracteristiques/:c/keyword/:keyword', 'TypePathoController@getTypesPathoFilteredCK');
+
+    // with keyword
+
+    $router->get('/getTypesPatho/keyword/:k', 'TypePathoController@getTypesPathoFilteredK');
+
+// get Liste
+
+    // with meridiens
+    
+    $router->get('/getListePatho/:id/meridiens/:m', 'TypePathoController@getListePathoFilteredM');
+
+    $router->get('/getListePatho/:id/meridiens/:m/caracteristiques/:c', 'TypePathoController@getListePathoFilteredMC');
+    $router->get('/getListePatho/:id/meridiens/:m/keyword/:k', 'TypePathoController@getListePathoFilteredMK');
+
+    $router->get('/getListePatho/:id/meridiens/:m/caracteristiques/:c/keyword/:k', 'TypePathoController@getListePathoFiltered');
+
+    // with caracteristiques
+
+    $router->get('/getListePatho/:id/caracteristiques/:c', 'TypePathoController@getListePathoFilteredC');
+
+    $router->get('/getListePatho/:id/caracteristiques/:c/keyword/:k', 'TypePathoController@getListePathoFilteredCK');
+
+    // with keyword
+    
+    $router->get('/getListePatho/:id/keyword/:k', 'TypePathoController@getListePathoFilteredK');
+
+/**
+ * Calculatrice REST
+ */
+$router->get('/calculatrice/addition/:a/:b', 'CalculatriceController@addition');
+$router->get('/calculatrice/soustraction/:a/:b', 'CalculatriceController@soustraction');
+$router->get('/calculatrice/multiplication/:a/:b', 'CalculatriceController@multiplication');
+$router->get('/calculatrice/division/:a/:b', 'CalculatriceController@division');
