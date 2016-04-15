@@ -4,49 +4,34 @@
 
         <input type="text" name="search" id="search-input" placeholder="Symptômes ou pathologies" />
 
-        <div class="type_patho__container">
-            <div class="title__container" >
-                <div class="title">
-                    Types de pathologie
-                </div>
-                <a class="drop_select"><i class="icon icon-down-open"></i></a>
-            </div>
-            <select size="{count($typesPatho)}" class="multiselect" multiple>
+        <div class="filter">
+            <fieldset>
+                <legend>Type de pathologie</legend>
                 {foreach from=$typesPatho item=typePatho}
-                    <option class="option_item" value="{$typePatho->idT}">{$typePatho->name}</option>
+                    <div class="filter__row"><input type="checkbox" value="{$typePatho->idT}">{$typePatho->name}</div>
                 {/foreach}
-            </select>
+            </fieldset>
         </div>
 
-        <div class="meridien__container">
-            <div class="title__container" >
-                <div class="title">
-                    Méridiens
-                </div>
-                <a class="drop_select"><i class="icon icon-down-open"></i></a>
-            </div>
-            <select size="{count($meridiens)}" class="multiselect" multiple>
+        <div class="filter">
+            <fieldset>
+                <legend>Méridiens</legend>
                 {foreach from=$meridiens item=meridien}
-                    <option class="option_item" value="{$meridien->code}">{$meridien->nom}</option>
+                    <div class="filter__row"><input type="checkbox" value="{$meridien->code}">{$meridien->nom}</div>
                 {/foreach}
-            </select>
+            </fieldset>
         </div>
 
-        <div class="caracteristiques__container">
-            <div class="title__container" >
-                <div class="title">
-                    Caractéristiques
-                </div>
-                <a class="drop_select"><i class="icon icon-down-open"></i></a>
-            </div>
-            <select size="6" class="multiselect" multiple>
-                    <option class="option_item" value="1">plein</option>
-                    <option class="option_item" value="2">chaud</option>
-                    <option class="option_item" value="3">vide</option>
-                    <option class="option_item" value="4">froid</option>
-                    <option class="option_item" value="5">interne</option>
-                    <option class="option_item" value="6">externe</option>
-            </select>
+        <div class="filter">
+            <fieldset>
+                <legend>Caractéristiques</legend>
+                <div class="filter__row"><input type="checkbox" value="1">plein</div>
+                <div class="filter__row"><input type="checkbox" value="2">chaud</div>
+                <div class="filter__row"><input type="checkbox" value="3">vide</div>
+                <div class="filter__row"><input type="checkbox" value="4">froid</div>
+                <div class="filter__row"><input type="checkbox" value="5">interne</div>
+                <div class="filter__row"><input type="checkbox" value="6">externe</div>
+            </fieldset>
         </div>
 
         <button type="submit">Rechercher</button>
