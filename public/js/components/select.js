@@ -24,6 +24,14 @@ $.fn.select = function() {
             $container.addClass('active');
         }
     });
+
+    this.on("focus", "input[type=radio]", function() {
+        
+            $('.filter').each(function() {
+                $(this).removeClass('active');
+            });
+            $container.addClass('active');
+    });
     
     /**
      * Add or remove item

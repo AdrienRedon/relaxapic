@@ -14,7 +14,6 @@ $.fn.multiselect = function() {
      * Toggle Dropdown multiselect list
      */
     this.on("click", ".filter__toggle", function() {
-        console.log('toggle');
         if ($container.hasClass('active')) {
             $container.removeClass('active');
         } else {
@@ -23,6 +22,14 @@ $.fn.multiselect = function() {
             });
             $container.addClass('active');
         }
+    });
+
+    this.on("focus", "input[type=checkbox]", function() {
+        
+            $('.filter').each(function() {
+                $(this).removeClass('active');
+            });
+            $container.addClass('active');
     });
     
     /**
