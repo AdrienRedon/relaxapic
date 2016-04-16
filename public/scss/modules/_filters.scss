@@ -9,7 +9,6 @@
     background-size: cover;
     
     .filters__container {
-        
         display: flex;
         padding: 20px 0;
         width: 50%;
@@ -18,72 +17,77 @@
         align-items: center;
         border-radius: 8px;
         @include shadow(1);
-    
-        .type_patho__container, .meridien__container, .caracteristiques__container {
-            display: flex;
-            flex-direction: column;
-            width: 80%;
-            @include shadow(1);
-            margin-top: 10px;
-            border-radius: 3px;
-            overflow: hidden;
-            
-            .title__container {
-                display:flex;
-                height: 40px;
-                background-color: #fefefe;
-                width: 100%;
-                margin : auto;
 
-                transition: background-color 0.3s;
-                
-                .title {
-                    flex: 2;
-                    align-self: center;
-                    margin-left: 10px;
-                    color: #cacaca;
+        input[type=text] {
+            width: 400px;
+            height: 2rem;
+            margin: 10px auto;
+
+            background-color: #ddd;
+            border-radius: 1rem;
+        }
+
+        .filter {
+            padding-top: 2px;
+            width: 400px;
+
+            a {
+                color: inherit;
+            }
+
+            fieldset {
+                position: relative;
+                width: 100%;
+                height: 2rem;
+                padding: 2px;
+                overflow: hidden;
+                border-radius: 4px;
+                border: none;
+
+                @include shadow(1);
+
+                input[type=checkbox] {
+                    display: inline-block;
+                    width: auto;
+                    height: auto;
                 }
-                
-                .drop_select {
-                    display: inherit;
-                    width : 40px;
-                    background-color: #1c9898;
-                    align-items: center;
-                    justify-content: center;
-                    cursor: pointer;
-                    color: white;
-                    
-                    i {
-                        transition-duration: .3s;
-                    }
-                }
-                
-                &.active {
-                    background-color: #07a0a3;
-                    color: white;
-                    .drop i {
-                    transform: rotate(180deg);
-                    }  
+
+                .filter__row:first-of-type {
+                    padding-top: 2rem;
                 }
             }
-            
-            .multiselect {
-                display: none;
-                position: absolute;
-                height: auto;
-                width: 40%;
-                outline:none;
 
-                -webkit-appearance: none; // For Safari
-                font-size: 0.9rem;
+            legend {
+                display: block;
+                position: absolute;
+                width: 100%;
+                font-size: 1rem;
+            }
+
+            .filter__toggle:after {
+                content: '';
+                position: absolute;
+                top: 10px;
+                right: 4px;
+                width: 0;
+                height: 0;
                 
-                &:focus {
-                    outline-style: none;
+                border-left: .6rem solid transparent;
+                border-right: .6rem solid transparent;
+                border-top: .8rem solid $mainColor;
+                border-bottom: 0;
+
+                transition: .3s;
+            }
+
+
+            &.active {
+                fieldset {
+                    height: auto;
                 }
-                
-                .option_item {
-                    padding: 10px;
-                    color: #606060;
+
+                .filter__toggle:after {
+                    @include rotate(180deg);
                 }
             }
         }

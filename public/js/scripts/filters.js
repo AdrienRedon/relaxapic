@@ -3,9 +3,9 @@ var $ = require("jquery");
 require('../components/multiselect');
 require('../components/select');
 
-var selectPatho = $('.type_patho__container').select();
-var multiselectMeridiens = $('.meridien__container').multiselect();
-var multiselectCaracteristiques = $('.caracteristiques__container').multiselect();
+var selectPatho = $('.filterTypePatho').select();
+var multiselectMeridiens = $('.filterMeridiens').multiselect();
+var multiselectCaracteristiques = $('.filterCaracteristiques').multiselect();
 
 $('body').on('submit', '.filters__container', function(e) {
     e.preventDefault();
