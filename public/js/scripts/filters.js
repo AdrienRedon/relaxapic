@@ -55,10 +55,7 @@ $('body').on('submit', '.filters__container', function(e) {
                 $(this).find('.category_title__container').removeClass('active');
         });
 
-        console.log(data);  
         $('.category__container').each(function() {
-            console.log(parseInt($(this).data('id')));
-            console.log(data.indexOf(parseInt($(this).data('id'))));
             if(data.indexOf(parseInt($(this).data('id'))) !== -1) {
                 var resultMeridiens = selectedMeridiens.map(function(el) {
                     return el.id;

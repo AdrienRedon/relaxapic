@@ -14,7 +14,6 @@ $.fn.select = function() {
      * Toggle Dropdown multiselect list
      */
     this.on("click", ".filter__toggle", function() {
-        console.log('toggle');
         if ($container.hasClass('active')) {
             $container.removeClass('active');
         } else {
@@ -34,27 +33,26 @@ $.fn.select = function() {
     });
     
     /**
-     * Add or remove item
+     * Change selected value
      */
-    //  $liste.on("click", ".option_item", function() {
-    //     var $option = $(this);
-    //     var html = '';
+    this.on("change", "input[type=radio]", function() {
+        var $checkbox = $(this);
+        var $label = $checkbox.siblings('label');
+        var html = '';
 
-    //     // on modifie le selected
-    //     selected = {
-    //         id : $option.val(), 
-    //         val : $option.html()
-    //     };
+        selected = {
+            id : $checkbox.val(), 
+            val : $label.html()
+        };
 
-    //     if (selected) {
-    //             html = selected.val;
-    //     } else {
-    //         html = titleContent;
-    //     }
-    //     $title.html(html);
-    //     $titleContainer.removeClass('active');
-    //     $liste.slideUp(300);
-    // });
+        if (selected) {
+                html = selected.val;
+        } else {
+            html = titleContent;
+        }
+
+        $title.html(html);
+    });
 
 // public       
     this.initialize = function() {

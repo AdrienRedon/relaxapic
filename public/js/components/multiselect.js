@@ -35,38 +35,37 @@ $.fn.multiselect = function() {
     /**
      * Add or remove item
      */
-    //  $liste.on("click", ".option_item", function() {
-    //     var $option = $(this);
-    //     var html = '';
+    this.on("change", "input[type=checkbox]", function() {
+        var $checkbox = $(this);
+        var $label = $checkbox.siblings('label');
+        var html = '';
 
-    //     // on ajoute si ce n'est pas déjà ajouté
-    //     var exist = $.grep(selected, function(e){ 
-    //         return e.id == $option.val(); 
-    //     });
-    //     if (! exist.length) {
-    //         selected.push({
-    //             id : $option.val(), 
-    //             val : $option.html()
-    //         });
-    //     } else {
-    //         selected = selected.filter(function(el) {
-    //             return el.id !== $option.val();
-    //         });
-    //     }
+        // on ajoute si ce n'est pas déjà ajouté
+        var exist = $.grep(selected, function(e){ 
+            return e.id == $checkbox.val(); 
+        });
+        if (! exist.length) {
+            selected.push({
+                id : $checkbox.val(), 
+                val : $label.html()
+            });
+        } else {
+            selected = selected.filter(function(el) {
+                return el.id !== $checkbox.val();
+            });
+        }
 
-    //     if (selected.length) {
-    //         for (var i = 0; i < selected.length; i++) {
-    //             html += selected[i].val;
-    //             html += ', ';
-    //         }
-    //         html = html.substr(0, html.length - 2);
-    //     } else {
-    //         html = titleContent;
-    //     }
-    //     $title.html(html);
-    //     $titleContainer.removeClass('active');
-    //     $liste.slideUp(300);
-    // });
+        if (selected.length) {
+            for (var i = 0; i < selected.length; i++) {
+                html += selected[i].val;
+                html += ', ';
+            }
+            html = html.substr(0, html.length - 2);
+        } else {
+            html = titleContent;
+        }
+        $title.html(html);
+    });
 
 // public       
     this.initialize = function() {

@@ -8,7 +8,7 @@
             <fieldset>
                 <a href="#" class="filter__toggle"><legend>Type de pathologie</legend></a>
                 {foreach from=$typesPatho item=typePatho}
-                    <div class="filter__row"><input type="radio" name="typePatho" value="{$typePatho->idT}">{$typePatho->name}</div>
+                    <div class="filter__row"><input type="radio" name="typePatho" value="{$typePatho->idT}"><label>{$typePatho->name}</label></div>
                 {/foreach}
             </fieldset>
         </div>
@@ -17,7 +17,7 @@
             <fieldset>
                 <a href="#" class="filter__toggle"><legend>Méridiens</legend></a>
                 {foreach from=$meridiens item=meridien}
-                    <div class="filter__row"><input type="checkbox" name="meridien" value="{$meridien->code}">{$meridien->nom}</div>
+                    <div class="filter__row"><input type="checkbox" name="meridien" value="{$meridien->code}"><label>{$meridien->nom}</label></div>
                 {/foreach}
             </fieldset>
         </div>
@@ -25,12 +25,12 @@
         <div class="filter filterCaracteristiques">
             <fieldset>
                 <a href="#" class="filter__toggle"><legend>Caractéristiques</legend></a>
-                <div class="filter__row"><input type="checkbox" name="caracteristiques" value="1">plein</div>
-                <div class="filter__row"><input type="checkbox" name="caracteristiques" value="2">chaud</div>
-                <div class="filter__row"><input type="checkbox" name="caracteristiques" value="3">vide</div>
-                <div class="filter__row"><input type="checkbox" name="caracteristiques" value="4">froid</div>
-                <div class="filter__row"><input type="checkbox" name="caracteristiques" value="5">interne</div>
-                <div class="filter__row"><input type="checkbox" name="caracteristiques" value="6">externe</div>
+                <div class="filter__row"><input type="checkbox" name="caracteristiques" value="1"><label>plein</label></div>
+                <div class="filter__row"><input type="checkbox" name="caracteristiques" value="2"><label>chaud</label></div>
+                <div class="filter__row"><input type="checkbox" name="caracteristiques" value="3"><label>vide</label></div>
+                <div class="filter__row"><input type="checkbox" name="caracteristiques" value="4"><label>froid</label></div>
+                <div class="filter__row"><input type="checkbox" name="caracteristiques" value="5"><label>interne</label></div>
+                <div class="filter__row"><input type="checkbox" name="caracteristiques" value="6"><label>externe</label></div>
             </fieldset>
         </div>
 
