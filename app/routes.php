@@ -7,8 +7,8 @@
 $router->get('/', 'PageController@index');
 $router->get('/admin', 'PageController@admin');
 
-$router->post('/login', 'PageController@login');
-$router->post('/signin', 'PageController@signin');
+$router->post('/login', 'UserController@login');
+$router->post('/signin', 'UserController@signin');
 
 $router->get('/pathologies', 'PageController@pathologies');
 $router->get('/salons', 'PageController@salons');
