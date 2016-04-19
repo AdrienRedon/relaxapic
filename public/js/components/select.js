@@ -31,6 +31,12 @@ $.fn.select = function() {
             });
             $container.addClass('active');
     });
+
+    $('body').on("keyup", function(e) {
+        if (e.keyCode === 27) { 
+            $container.removeClass('active');
+        }
+    });
     
     /**
      * Change selected value
