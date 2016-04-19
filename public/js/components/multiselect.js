@@ -32,6 +32,12 @@ $.fn.multiselect = function() {
             $container.addClass('active');
     });
     
+    this.on("keyup", function(e) {
+        if (e.keyCode === 27) { 
+            alert("replier la liste");
+        }
+    });
+
     /**
      * Add or remove item
      */
