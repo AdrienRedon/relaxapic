@@ -32,6 +32,11 @@ $.fn.popup = function(button) {
         e.preventDefault();
         $popup.removeClass('hidden');
         $overlay.removeClass('hidden');
+        if(e.currentTarget.id == "signin__button") {
+            $("#signin_mail").focus();
+        } else {
+            $("#login_mail").focus();
+        }
         return false;
     });
 
