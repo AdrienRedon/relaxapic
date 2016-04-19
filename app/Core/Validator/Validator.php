@@ -20,7 +20,7 @@ class Validator
 
     /**
      * Validation first error
-     * @var string
+     * @var array
      */
     protected $errors;
 
@@ -28,7 +28,7 @@ class Validator
     {
         $this->data = $data;
         $this->rules = $rules;
-        $this->errors = '';
+        $this->errors = array();
     }
     /**
      * Check if the validation passes
@@ -45,7 +45,7 @@ class Validator
                 {
                     if($rule == 'required' && empty($value))
                     {
-                        $this->errors = "Vous devez remplir le champs $data";
+                        $this->errors[$data] = "Vous devez remplir le champs $data";
                         return false;
                     }
                     else if(substr($rule, 0, 3) == 'min')
@@ -53,7 +53,7 @@ class Validator
                         $rule = explode(':', $rule);
                         if(strlen($value) < $rule[1])
                         {
-                            $this->errors = "Le champs $data doit faire au moins {$rule[1]} caractères";
+                            $this->errors[$data] = "Le champs $data doit faire au moins {$rule[1]} caractères";
                             return false;
                         }
                     }
@@ -62,21 +62,21 @@ class Validator
                         $rule = explode(':', $rule);
                         if(strlen($value) > $rule[1])
                         {
-                            $this->errors = "Le champs $data doit faire moins de {$rule[1]} caractères";
+                            $this->errors[$data] = "Le champs $data doit faire moins de {$rule[1]} caractères";
                             return false;
                         }
                     }
                     else if(substr($rule, 0, 5) == 'upper')
                     {
                         if(!preg_match('/[A-Z]/', $data)){
-                            $this->errors = "Le champs $data doit contenir au moins une majuscule";
+                            $this->errors[$data] = "Le champs $data doit contenir au moins une majuscule";
                             return false;
                         }
                     }
                     else if(substr($rule, 0, 7) == 'numeric')
                     {
                         if(!preg_match('/(?=.*\d)/', $data)){
-                            $this->errors = "Le champs $data doit contenir au moins un chiffre";
+                            $this->errors[$data] = "Le champs $data doit contenir au moins un chiffre";
                             return false;
                         }
                     }
@@ -85,7 +85,7 @@ class Validator
                         $rule = explode(':', $rule);
                         if(strlen($value) != $rule[1])
                         {
-                            $this->errors = "Le champs $data doit faire exactement {$rule[1]} caractères";
+                            $this->errors[$data] = "Le champs $data doit faire exactement {$rule[1]} caractères";
                             return false;
                         }
                     }
@@ -93,7 +93,7 @@ class Validator
                     {
                         if(!isset($this->data[$data.'_confirm']) or ($value != $this->data[$data.'_confirm']))
                         {
-                            $this->errors = "Vous devez correctement confirmer le champs $data";
+                            $this->errors[$data.'_confirm'] = "Vous devez correctement confirmer le champs $data";
                             return false;
                         }
                     }
@@ -101,7 +101,7 @@ class Validator
                     {
                         if(!filter_var($value, FILTER_VALIDATE_EMAIL))
                         {
-                            $this->errors = "Le champs $data doit contenir une adresse mail valide.";
+                            $this->errors[$data] = "Le champs $data doit contenir une adresse mail valide.";
                             return false;
                         }
                     }
@@ -109,7 +109,7 @@ class Validator
                     {
                         if(!filter_var($value, FILTER_VALIDATE_URL))
                         {
-                            $this->errors = "Le champs $data doit contenir une URL valide.";
+                            $this->errors[$data] = "Le champs $data doit contenir une URL valide.";
                             return false;
                         }
                     }
@@ -121,6 +121,7 @@ class Validator
                         $before = $date1->diff($date2)->invert;
                         if($before > 0)
                         {
+                            $this->errors[$data] = "Le champs $data doit être avant le {$rule[1]}";
                             return false;
                         }
                     }
@@ -132,6 +133,7 @@ class Validator
                         $after = !($date1->diff($date2)->invert);
                         if($after)
                         {
+                            $this->errors[$data] = "Le champs $data doit être après le {$rule[1]}";
                             return false;
                         }
                     }
@@ -146,6 +148,7 @@ class Validator
                         $after = !($date1->diff($date3)->invert);
                         if($before || $after)
                         {
+                            $this->errors[$data] = "Le champs $data doit être entre le {$dates[0]} et le {$dates[1]}";
                             return false;
                         }
                     }
@@ -164,7 +167,7 @@ class Validator
     }
     /**
      * Return the validation errors
-     * @return string
+     * @return array
      */
     public function getErrors()
     {
