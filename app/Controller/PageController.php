@@ -22,7 +22,8 @@ class PageController extends Controller
 
     public function admin()
     {
-        if ($this->auth->check()) { // toto : admin
+        $user = $this->auth->user();
+        if ($this->auth->check()) {
             $content = 'vous êtes bien connecté';
         } else {
             $content = 'vous n\'êtes pas connecté';
@@ -32,6 +33,7 @@ class PageController extends Controller
 
     public function pathologies()
     {
+        $user = $this->auth->user();
         $typePatho = $this->model->get('TypePatho');
         $meridien = $this->model->get('Meridien');
 
@@ -43,11 +45,13 @@ class PageController extends Controller
 
     public function salons()
     {
+        $user = $this->auth->user();
         $this->view->render('Page/salons');
     }
 
     public function membres()
     {
+        $user = $this->auth->user();
         $this->view->render('Page/membres');
     }
 }

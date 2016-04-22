@@ -29,10 +29,10 @@ class UserController extends Controller
             $errors = $validation->getErrors();
             die(json_encode($errors));
         }
-        if ($this->auth->attempt($input['mail'], password_hash($input['password'], PASSWORD_DEFAULT))) {
-            die(json_encode(true));
+        if ($this->auth->attempt($input['mail'], $input['password'])) {
+            die(json_encode(['logged' => true]));
         } else {
-            die(json_encode(false));
+            die(json_encode(['logged' => false]));
         }
     }
 
@@ -49,13 +49,18 @@ class UserController extends Controller
             $errors = $validation->getErrors();
             die(json_encode($errors));
         } else {
-            $user = $this->modelResolver->get('User');
+            $user = $this->model->get('User');
             $input = array(
-                'mail'    => $input['mail'],
+                'mail'     => $input['mail'],
                 'password' => password_hash($input['password'], PASSWORD_DEFAULT)
             );
-            $user->save($input);
-            die(json_encode(true));
+            $user->create($input);
+            die(json_encode(['signed' => true]));
         }
+    }
+
+    public function logout()
+    {
+        $this->auth->logout();
     }
 }

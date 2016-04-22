@@ -9,6 +9,7 @@ $router->get('/admin', 'PageController@admin');
 
 $router->post('/login', 'UserController@login');
 $router->post('/signin', 'UserController@signin');
+$router->post('/logout', 'UserController@logout');
 
 $router->get('/pathologies', 'PageController@pathologies');
 $router->get('/salons', 'PageController@salons');
