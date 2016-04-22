@@ -11,7 +11,6 @@ $signinPopup.popup('#signin__button');
 // intercept and make an ajax call
 $loginPopup.on("submit", function(e) {
     e.preventDefault();
-    console.log('login submited');
     $.ajax({
         url: 'login',
         method: 'POST',
@@ -31,7 +30,17 @@ $loginPopup.on("submit", function(e) {
         }
         // validation errors
         else {
-            console.log(data);
+            if (data.mail) {
+                $loginPopup.find(".mail__errors").html(data.mail);
+            } else {
+                $loginPopup.find(".mail__errors").html('');
+            }
+
+            if (data.password) {
+                $loginPopup.find(".password__errors").html(data.password);
+            } else {
+                $loginPopup.find(".password__errors").html('');
+            }
         }
     });
     return false;
@@ -55,7 +64,23 @@ $signinPopup.on("submit", function(e) {
         }
         // validation errors
         else {
-            console.log(data);
+            if (data.mail) {
+                $signinPopup.find(".mail__errors").html(data.mail);
+            } else {
+                $signinPopup.find(".mail__errors").html('');
+            }
+
+            if (data.password) {
+                $signinPopup.find(".password__errors").html(data.password);
+            } else {
+                $signinPopup.find(".password__errors").html('');
+            }
+
+            if (data.password_confirm) {
+                $signinPopup.find(".password_confirm__errors").html(data.password_confirm);
+            } else {
+                $signinPopup.find(".password_confirm__errors").html('');
+            }
         }
     });
     return false;

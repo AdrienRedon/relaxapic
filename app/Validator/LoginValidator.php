@@ -10,7 +10,7 @@ class LoginValidator extends Validator
 	{
 		$data = $input;
 		$rules = [
-			'login' => 'required|mail',
+			'mail' => 'required|mail',
 			'password' => 'required'
 		];
 		parent::__construct($data, $rules);
