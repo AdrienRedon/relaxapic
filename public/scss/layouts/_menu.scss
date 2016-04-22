@@ -84,6 +84,10 @@
 
                     a {
                         z-index: 50;
+
+                        &:focus {
+                            color: $mainColor;
+                        }
                     }
                 }
                 
@@ -115,6 +119,10 @@
 
                     a {
                         z-index: 50;
+
+                        &:focus {
+                            color: $mainColor;
+                        }
                     }
                 }
                 
@@ -144,6 +152,10 @@
 
                     a {
                         z-index: 50;
+
+                        &:focus {
+                            color: $mainColor;
+                        }
                     }
                 }
                 //TODO : overlay -> use image brightness
