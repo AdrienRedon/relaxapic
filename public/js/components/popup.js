@@ -32,6 +32,7 @@ $.fn.popup = function(button) {
         e.preventDefault();
         $popup.removeClass('hidden');
         $overlay.removeClass('hidden');
+        $(":focusable:first-child").focus();
         return false;
     });
 
