@@ -12,7 +12,7 @@ $.fn.popup = function(button) {
      */
 
     $body.keyup(function(e){
-        if(e.which == 27){
+        if (e.which == 27) {
             $popup.addClass('hidden');
             $overlay.addClass('hidden');
         }
