@@ -129,7 +129,7 @@ class Model extends ContainerAware
             {
                 $sql .= "$k,";
             }
-            $sql = substr($sql, 0, -2);
+            $sql = rtrim($sql, ',');
             $sql .= ") VALUES (";
             foreach ($data as $field => $value) 
             {
@@ -138,7 +138,7 @@ class Model extends ContainerAware
             }
         }
         
-        if($timestamps)
+        if($this->timestamps)
         {
             $sql .= "created_at=?,";
             $args['created_at'] = date('d/m/Y H:i:s');

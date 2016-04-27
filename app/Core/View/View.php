@@ -3,7 +3,6 @@
 namespace App\Core\View;
 
 use \Smarty;
-use App\Libs\Flash;
 use App\Core\DependencyInjection\ContainerAware;
 use App\Core\DependencyInjection\ContainerInterface;
 
@@ -19,7 +18,7 @@ class View extends ContainerAware
     {
         $this->setContainer($container);
         $this->smarty = new Smarty();
-        $this->flash = new Flash($container->resolve('SessionInterface'));
+        $this->auth = $this->container->resolve('Auth');
 
         $this->smarty->debugging = false;
         $this->smarty->caching = false;
@@ -29,7 +28,7 @@ class View extends ContainerAware
     public function setDirectoryPath($directoryPath)
     {
         $this->directoryPath = $directoryPath;
-        shell_exec('cd ../app/View && chmod 777 templates_c && chmod 777 cache');
+        shell_exec('cd ../app/View && chmod 777 templates_c && chmod 777 cache'); // to make sure Smarty can write file
         $this->smarty->setTemplateDir(ROOT . 'app/View');
         $this->smarty->setCompileDir(ROOT . 'app/View/templates_c');
         $this->smarty->setCacheDir(ROOT . 'app/View/cache');
@@ -46,7 +45,7 @@ class View extends ContainerAware
             }
         }
 
-        $this->smarty->registerObject('flash', $this->flash);
+        $this->smarty->assign('logged', $this->auth->check());
 
         $this->smarty->display(ROOT . $this->directoryPath . $path . '.tpl');
     }
