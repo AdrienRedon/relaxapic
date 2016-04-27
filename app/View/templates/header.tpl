@@ -2,7 +2,8 @@
 <html>
     <head>
         <title>Relaxapic {$title}</title>
-        <link rel="stylesheet" type="text/css" href="{WEBROOT}css/app.css">
+        <link rel="stylesheet" type="text/css" href="{WEBROOT}css/app.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="{WEBROOT}css/print.css" media="print" />
         <meta charset="utf-8"/>
     </head>
     <body>
