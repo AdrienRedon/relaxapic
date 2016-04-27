@@ -1,8 +1,32 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
 
+.team-members-banner {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    width: 100%;
+    height: 10vw;
+    background: url(../img/membres-header.png) center no-repeat;
+
+
+}
+
+
+
 .team-members-container {
     background-color: #f7f7f7;
     padding: 30px;
+    
+    .titre {
+        margin: 0;
+        color: #282828;
+        padding: 0;
+        padding-left: 1%;
+        font-size: 4vmin;
+        border-bottom: 1px solid #e0e0e0;
+        margin-bottom: 30px;
+    }
+
     
     .team-members {
     display: flex;
@@ -13,6 +37,7 @@
             display: inherit;
             flex-direction: column;
             width: 30%;
+            min-width: 270px; 
             align-items: center;
             margin-bottom: 50px;
             

@@ -5,7 +5,7 @@
             <div class="who_item">
                 <img class="who_logo" src="{WEBROOT}img/members_icon.png" alt="members logo" width="120" height="120">
                 <p class="who_info">
-                    L'association compte <strong>33</strong> membres passionés et dévoués
+                    L'association compte <strong>4</strong> membres passionés et dévoués
                 </p>
             </div>
             <div class="who_item">
