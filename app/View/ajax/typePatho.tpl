@@ -1,5 +1,5 @@
 <h2 class="titre">
-        Type de pathologies
+        Types de pathologies
 </h2>
 
 {foreach from=$typesPatho item=typePatho}
