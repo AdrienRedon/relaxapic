@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use App\Core\Controller\Controller;
-use App\Validator\LoginValidator;
-use App\Validator\SigninValidator;
 use App\Core\DependencyInjection\ContainerInterface;
 
 class PageController extends Controller
@@ -24,7 +22,8 @@ class PageController extends Controller
 
     public function admin()
     {
-        if ($this->auth->check()) { // toto : admin
+        $user = $this->auth->user();
+        if ($this->auth->check()) {
             $content = 'vous êtes bien connecté';
         } else {
             $content = 'vous n\'êtes pas connecté';
@@ -32,41 +31,9 @@ class PageController extends Controller
         $this->view->render('Page/admin', compact('content'));
     }
 
-    public function login()
-    {
-        $validation = new LoginValidator();
-        if ($validation->fails()) {
-            $this->flash->set($validation->getErrors());
-            $this->redirect->backWithInput($_POST);
-        }
-        if ($this->auth->attempt($_POST['mail'], $_POST['password'])) {
-            $this->index();
-        } else {
-            $this->flash->set('login incorrect');
-            $this->redirect->backWithInput($_POST);
-        }
-    }
-
-    public function signin()
-    {
-        $input = array(
-            'mail'    => $_POST['mail'],
-            'password' => password_hash($_POST['password'], PASSWORD_DEFAULT)
-        );
-        $validation = new SigninValidator();
-        if ($validation->fails()) {
-
-            $this->flash->set($validation->getErrors());
-            $this->redirect->backWithInput($_POST);
-        } else {
-            $user = $this->modelResolver->get('User');
-            $user->save($input);
-            $this->redirect->home();
-        }
-    }
-
     public function pathologies()
     {
+        $user = $this->auth->user();
         $typePatho = $this->model->get('TypePatho');
         $meridien = $this->model->get('Meridien');
 
@@ -78,11 +45,13 @@ class PageController extends Controller
 
     public function salons()
     {
+        $user = $this->auth->user();
         $this->view->render('Page/salons');
     }
 
     public function membres()
     {
+        $user = $this->auth->user();
         $this->view->render('Page/membres');
     }
 }

@@ -16,7 +16,9 @@
                 RELAXAPIC
             </h1>
             <div class="header__login">
-                <a id="signin__button" href="#">S'inscrire</a> <a id="login__button" href="#">Se connecter</a>
+                <a id="signin__button" class="isNotLogged{if $logged} hidden{/if}" href="#">S'inscrire</a>
+                <a id="login__button" class="isNotLogged{if $logged} hidden{/if}" href="#">Se connecter</a>
+                <a id="logout__button" class="isLogged{if ! $logged} hidden{/if}" href="#">Se déconnecter</a>
             </div>
         </header>
         <nav class="menu {if $size=="big"}menu--big{/if}">
@@ -31,10 +33,6 @@
     {include file="templates/popup/signin.tpl"}
 
     <div class="overlay hidden"></div>
-
-    {if isset($flash)}
-        {$flash->get()}
-    {/if}
 
     <div class="main__wrapper">
     

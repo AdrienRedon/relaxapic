@@ -6,11 +6,11 @@ use App\Core\Validator\Validator;
 
 class SigninValidator extends Validator 
 {
-	public function __construct()
+	public function __construct($input = array())
 	{
-		$data = $_POST;
+		$data = $input;
 		$rules = [
-			'login' => 'required|mail',
+			'mail' => 'required|mail',
 			'password' => 'required|min:8|confirmed'
 		];
 		parent::__construct($data, $rules);
