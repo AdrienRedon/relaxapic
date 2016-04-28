@@ -187,8 +187,19 @@
             }
         }
     }
-    /* SYMPTOMS - END */
+    /* SYMPTOMS - END */   
+}
     
-    
+
+@media only screen and (max-width: 1000px) {
+    .category__container {
+        width: 80% !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .category__container {
+        width: 100% !important;
+    }
 }
 /* /////////// PATHOLOGY Info - END /////////// */

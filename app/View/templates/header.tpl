@@ -4,6 +4,7 @@
         <title>Relaxapic {$title}</title>
         <link rel="stylesheet" type="text/css" href="{WEBROOT}css/app.css">
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
     </head>
     <body>
         <header {if $size=="big"}class="header--big"{/if}>

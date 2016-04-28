@@ -23,23 +23,3 @@
         </div>
     </article>
 </section>
-
-<section class="nos_actions">
-    <article class="actions_container">
-        <h2 class="actions_title"></h2>
-        <div class="actions_content">
-            <div class="actions_column">
-                <p class="action">
-                </p>
-                <p class="action">
-                </p>
-            </div>
-            <div class="actions_column">
-            </div>
-            <div class="actions_column">
-                <p class="action">
-                </p>
-            </div>
-        </div>
-    </article>
-</section>

@@ -12,98 +12,160 @@
         position: relative;
         display: flex;
         padding: 20px 0 30px 0;
-        width: 50%;
+        width: 70%;
         background-color: white;
         flex-direction: column;
-        align-items: center;
         border-radius: 8px;
+        border-bottom: 5px solid $mainColor;
         @include shadow(1);
-
-        input[type=text] {
-            width: 400px;
-            height: 2rem;
-            margin: 10px auto;
-
-            background-color: #ddd;
-            border-radius: 1rem;
+        
+        .filters-header {
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 30px;
+            
+            h2 {
+               margin: 0;
+               color: $mainColor;
+            }
         }
-
-        .filter {
-            padding-top: 2px;
-            width: 400px;
-
-            a {
-                color: inherit;
-            }
-
-            fieldset {
-                position: relative;
-                background-color: white;
-                width: 100%;
+        
+        .all-filters {
+            display: inherit;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-direction: column;
+            
+            input[type=text] {
+                min-width: 350px;
+                width: 70%;
                 height: 2rem;
-                padding: 2px;
-                overflow: hidden;
-                border-radius: 4px;
-                border: none;
+                margin: 10px auto;
 
-                @include shadow(1);
+                background-color: #ddd;
+                border-radius: 1rem;
+            }
 
-                input[type=checkbox], input[type=radio] {
-                    display: inline-block;
-                    margin-right: 10px;
-                    width: auto;
-                    height: auto;
+            .filter {
+                padding-top: 2px;
+                min-width: 350px;
+                width: 70%;
+
+                a {
+                    color: inherit;
                 }
 
-                .filter__row:first-of-type {
-                    padding-top: 2rem;
-                }
-            }
-
-            legend {
-                display: block;
-                position: absolute;
-                width: 100%;
-                font-size: 1rem;
-            }
-
-            .filter__toggle:after {
-                content: '';
-                position: absolute;
-                top: 10px;
-                right: 4px;
-                width: 0;
-                height: 0;
-                
-                border-left: .6rem solid transparent;
-                border-right: .6rem solid transparent;
-                border-top: .8rem solid $mainColor;
-                border-bottom: 0;
-
-                transition: .3s;
-            }
-
-
-            &.active {
                 fieldset {
-                    z-index: 9;
+                    position: relative;
+                    background-color: white;
+                    width: 100%;
+                    height: 2rem;
+                    padding: 2px;
+                    overflow: hidden;
+                    border-radius: 4px;
+                    border: none;
+
+                    @include shadow(1);
+
+                    input[type=checkbox], input[type=radio] {
+                        display: inline-block;
+                        margin-right: 10px;
+                        width: auto;
+                        height: auto;
+                    }
+
+                }
+
+                legend {
+                    display: block;
                     position: absolute;
-                    width: 400px;
-                    height: auto;
+                    width: 100%;
+                    font-size: 1rem;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    padding-right: 30px;
+                }
+                
+                .filter__toggle {
                 }
 
                 .filter__toggle:after {
-                    @include rotate(180deg);
+                    content: '▾';
+                    position: absolute;
+                    top: 4px;
+                    right: 20px;
+                    color: $mainColor;
+                    width: 0;
+                    height: 0;
+                    transition: .3s;
+                }
+
+                .filter__dropdown {
+                    position: absolute;
+                    width: 100%;
+                    margin-top: 1.8rem;
+                    display: none;
+                    z-index: 9;
+                    background-color: #fff;
+                }
+
+                &.active {
+                    
+                    .filter__dropdown {
+                        display: block;
+                    }
+                    
+                    fieldset {
+                        position: relative;
+                        width: 100%;
+                        overflow: visible;
+                    }
+
+                    .filter__toggle:after {
+                        top: 1.4rem;
+                        right: 10px;
+                        @include rotate(180deg);
+                    }
                 }
             }
+            
         }
+
+
+        
 
         button[type=submit] {
             position: absolute;
             bottom: 0;
             left: 20px;
+            border: none;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background-color: $mainColor;
+            color: white;
+            font-size: 1em;
+            padding: 5px;
+        }
+        
+        button[type=submit]:hover {
+            background-color: lighten($mainColor, 10%);
         }
     }
 }
+
+@media only screen and (max-width: 1000px) {
+    .filters__container {
+        width: 80% !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .filters__container {
+        width: 100% !important;
+        border-radius: 0px !important;
+    }
+}
+
 /* /////////// FILTERS - END /////////// */
 
