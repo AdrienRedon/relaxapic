@@ -11,7 +11,7 @@
             <div class="who_item">
                 <img class="who_logo" src="{WEBROOT}img/needle_icon.png" alt="aiguille logo" width="120" height="120">
                 <p class="who_info">
-                    Chacun d'entre nous est <strong>acupuncteur</strong> de profession
+                    Aucun d'entre nous n'est <strong>acupuncteur</strong> de profession
                 </p>
             </div>
             <div class="who_item">

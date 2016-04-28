@@ -5,6 +5,9 @@
         <link rel="stylesheet" type="text/css" href="{WEBROOT}css/app.css">
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, user-scalable=no">
+        <link rel="icon" type="image/png" sizes="32x32" href="{WEBROOT}img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="{WEBROOT}img/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{WEBROOT}img/favicon-16x16.png">
     </head>
     <body>
         <header {if $size=="big"}class="header--big"{/if}>
