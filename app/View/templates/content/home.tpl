@@ -26,25 +26,18 @@
 
 <section class="nos_actions">
     <article class="actions_container">
-        <h2 class="actions_title">Nos actions</h2>
+        <h2 class="actions_title"></h2>
         <div class="actions_content">
             <div class="actions_column">
                 <p class="action">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam
                 </p>
                 <p class="action">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam
                 </p>
             </div>
             <div class="actions_column">
-                <img src="{WEBROOT}img/actions_needle.png" alt="actions needle" width="339px" height="442px">
             </div>
             <div class="actions_column">
                 <p class="action">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam
                 </p>
             </div>
         </div>

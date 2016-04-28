@@ -1,5 +1,5 @@
 .qui_sommes_nous {
-    height: 500px;
+    min-height: 500px;
     
     .who_container {
         padding: 40px;
@@ -27,7 +27,7 @@
                 height: 100%;
                 
                 .who_info {
-                    font-size: 1.3em;
+                    font-size: 3vm;
                     margin-top: 20px;
                     width: 60%;
                     text-align: center;
@@ -77,5 +77,11 @@
                 }
             }
         }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .who_content {
+        flex-direction: column;
     }
 }

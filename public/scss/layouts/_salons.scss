@@ -13,6 +13,10 @@
     padding: 30px;
     width: 100%;
     
+    .titre {
+        margin-left: 9%;
+    }
+    
     .salons {
         width: 100%;
         display: flex;
@@ -21,7 +25,7 @@
         
         .salon {
             width: 40%;
-            min-width: 500px;
+            min-width: 300px;
             height: 250px;
             
             background-color: #fbfbfb;
