@@ -6,6 +6,7 @@ $.fn.popup = function(button) {
     var $popup = this;
     var $overlay = $('.overlay');
     var cancel = '.cancel__button';
+    var submit = '.submit__button';
 
     /**
      * Overlay
@@ -15,6 +16,12 @@ $.fn.popup = function(button) {
         if (e.which == 27) {
             $popup.addClass('hidden');
             $overlay.addClass('hidden');
+        }
+    });
+
+    $popup.keyup(function(e) {
+        if (e.which == 13) {
+            $(submit).trigger("click");
         }
     });
 
