@@ -9,7 +9,10 @@
         </div>
 
         <div class="all-filters">
+
+            {if $logged}
             <input type="text" name="search" id="search-input" placeholder="Symptômes ou pathologies" />
+            {/if}
 
             <div class="filter filterTypePatho">
                 <fieldset>
