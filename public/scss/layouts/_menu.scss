@@ -4,15 +4,16 @@
     &:not(.menu--big) {
         display: flex;
         width: 100%;
+        background-color: red;
         justify-content: flex-end;
         position: relative;
         top : -30px;
-        height: 0;
+        height: 0px;
     
         .menu__list {
+            background-color: yellow;
             list-style: none;
             display: inherit;
-            width: 30%;
             margin: 0;
             justify-content: space-around;
             color: #dadada;
@@ -21,6 +22,10 @@
             a {
                 color: inherit;
                 text-decoration: none;
+            }
+            
+            .menu__item {
+                margin-right: 15px;
             }
             
             .menu__item.active {
@@ -41,7 +46,7 @@
             margin: 0;
             padding: 0;
             justify-content: space-around;
-            font-size: 2.5rem;
+            font-size: 4vmin;
             
             .menu__item {
                 display: inherit;
@@ -56,6 +61,10 @@
                     width: 100%;
                     color: inherit;
                     text-decoration: none;
+                }
+                
+                &.link_accueil {
+                    display: none;
                 }
                 
                 &.link_patho{
@@ -158,8 +167,31 @@
                         }
                     }
                 }
-                //TODO : overlay -> use image brightness
             } 
         } 
     }
+}
+
+@media only screen and (max-width : 600px) {
+        .menu--big {
+        
+            .menu__list {
+                flex-direction: column;
+
+                .link_salons {
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                    margin-top: 1px !important;
+                    margin-bottom: 1px !important;
+                }
+                
+                .menu__item {
+                    width: 100% !important;
+                    
+                    &:hover:after {
+                        opacity: 0 !important;
+                    }
+                }
+            }
+        }
 }

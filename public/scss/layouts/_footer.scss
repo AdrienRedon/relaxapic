@@ -1,6 +1,7 @@
 footer {
     display: flex;
-    height: 250px;
+    flex-wrap: wrap;
+    min-height: 250px;
     background-color: $lightMainColor;
 
     color: white;
@@ -63,6 +64,10 @@ footer {
             margin-right: 50px;
             display: flex;
             justify-content: space-around;
+        }
+        
+        .footer__copyright {
+            margin-left: 10px;
         }
 
         i {

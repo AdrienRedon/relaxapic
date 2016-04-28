@@ -6,3 +6,4 @@ composer.lock
 /app/View/cache/
 /app/View/templates_c/
 /public/js/app.min.js
+/public/js/dist/

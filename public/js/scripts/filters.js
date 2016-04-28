@@ -3,9 +3,9 @@ var $ = require("jquery");
 require('../components/multiselect');
 require('../components/select');
 
-var selectPatho = $('.type_patho__container').select();
-var multiselectMeridiens = $('.meridien__container').multiselect();
-var multiselectCaracteristiques = $('.caracteristiques__container').multiselect();
+var selectPatho = $('.filterTypePatho').select();
+var multiselectMeridiens = $('.filterMeridiens').multiselect();
+var multiselectCaracteristiques = $('.filterCaracteristiques').multiselect();
 
 $('body').on('submit', '.filters__container', function(e) {
     e.preventDefault();
@@ -55,10 +55,7 @@ $('body').on('submit', '.filters__container', function(e) {
                 $(this).find('.category_title__container').removeClass('active');
         });
 
-        console.log(data);  
         $('.category__container').each(function() {
-            console.log(parseInt($(this).data('id')));
-            console.log(data.indexOf(parseInt($(this).data('id'))));
             if(data.indexOf(parseInt($(this).data('id'))) !== -1) {
                 var resultMeridiens = selectedMeridiens.map(function(el) {
                     return el.id;

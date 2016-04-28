@@ -5,30 +5,50 @@ $.fn.select = function() {
 // private
 
     var selected;
-    var $liste = this.children('select');
-    var $titleContainer = this.find('.title__container');
-    var $title = $titleContainer.find('.title');
+    var $container = this;
+    var $toggle = $container.find('.filter__toggle');
+    var $title = $container.find('legend');
     var titleContent = $title.html();
 
     /**
      * Toggle Dropdown multiselect list
      */
-    this.on("click", ".drop_select", function() {
-        $titleContainer.toggleClass('active');
-        $liste.slideToggle(300);
+    this.on("click", ".filter__toggle", function() {
+        if ($container.hasClass('active')) {
+            $container.removeClass('active');
+        } else {
+            $('.filter').each(function() {
+                $(this).removeClass('active');
+            });
+            $container.addClass('active');
+        }
+    });
+
+    this.on("focus", "input[type=radio]", function() {
+        
+            $('.filter').each(function() {
+                $(this).removeClass('active');
+            });
+            $container.addClass('active');
+    });
+
+    $('body').on("keyup", function(e) {
+        if (e.keyCode === 27) { 
+            $container.removeClass('active');
+        }
     });
     
     /**
-     * Add or remove item
+     * Change selected value
      */
-     $liste.on("click", ".option_item", function() {
-        var $option = $(this);
+    this.on("change", "input[type=radio]", function() {
+        var $checkbox = $(this);
+        var $label = $checkbox.siblings('label');
         var html = '';
 
-        // on modifie le selected
         selected = {
-            id : $option.val(), 
-            val : $option.html()
+            id : $checkbox.val(), 
+            val : $label.html()
         };
 
         if (selected) {
@@ -36,9 +56,8 @@ $.fn.select = function() {
         } else {
             html = titleContent;
         }
+
         $title.html(html);
-        $titleContainer.removeClass('active');
-        $liste.slideUp(300);
     });
 
 // public       

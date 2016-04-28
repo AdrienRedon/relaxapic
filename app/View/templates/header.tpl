@@ -4,6 +4,7 @@
         <title>Relaxapic {$title}</title>
         <link rel="stylesheet" type="text/css" href="{WEBROOT}css/app.css">
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
     </head>
     <body>
         <header {if $size=="big"}class="header--big"{/if}>
@@ -23,6 +24,7 @@
         </header>
         <nav class="menu {if $size=="big"}menu--big{/if}">
             <ul class="menu__list">
+                <li class="menu__item link_accueil{if $title=="Accueil"} active{/if}"><a href="{WEBROOT}"> Accueil </a></li>
                 <li class="menu__item link_patho{if $title=="Pathologies"} active{/if}"><a href="{WEBROOT}pathologies"> Pathologies </a></li>
                 <li class="menu__item link_salons{if $title=="Salons"} active{/if}"><a href="{WEBROOT}salons"> Salons </a></li>
                 <li class="menu__item link_membres{if $title=="Membres"} active{/if}"><a href="{WEBROOT}membres"> Membres </a></li>
