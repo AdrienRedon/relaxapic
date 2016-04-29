@@ -188,6 +188,11 @@
                 .menu__item {
                     width: 100% !important;
                     
+                    a {
+                        line-height: 100px !important;
+                        height: 100px !important;
+                    }
+                    
                     &:hover:after {
                         opacity: 0 !important;
                     }
