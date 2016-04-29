@@ -19,7 +19,7 @@ $.fn.popup = function(button) {
         }
     });
 
-    $popup.keyup(function(e) {
+    $body.keyup(function(e) {
         if (e.which == 13) {
             $(submit).trigger("click");
         }
