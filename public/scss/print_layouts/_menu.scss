@@ -1,0 +1,198 @@
+
+.menu {
+    
+    &:not(.menu--big) {
+        display: none;
+        width: 100%;
+        background-color: red;
+        justify-content: flex-end;
+        position: relative;
+        top : -30px;
+        height: 0px;
+    
+        .menu__list {
+            background-color: yellow;
+            list-style: none;
+            display: none;
+            margin: 0;
+            justify-content: space-around;
+            color: #dadada;
+            font-size: 1.2rem;
+            
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+            
+            .menu__item {
+                margin-right: 15px;
+            }
+            
+            .menu__item.active {
+                font-weight: 500;
+                color: #fff;
+            }
+        }
+    }
+    
+    &.menu--big {
+        margin-top:1px;
+        display: none;
+        
+        .menu__list {
+            list-style: none;
+            display: none;
+            width: 100%;
+            height: 300px;
+            margin: 0;
+            padding: 0;
+            justify-content: space-around;
+            font-size: 4vmin;
+            
+            .menu__item {
+                display: inherit;
+                align-items: center;
+                width: calc(100%/3);
+                color: white;
+                
+                a {
+                    text-align: center;
+                    line-height: 300px;
+                    height: 300px;
+                    width: 100%;
+                    color: inherit;
+                    text-decoration: none;
+                }
+                
+                &.link_accueil {
+                    display: none;
+                }
+                
+                &.link_patho{
+                    position: relative;
+                    background: url(../img/disease.jpg) center no-repeat;
+
+                    &:after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: 25;
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                        background: rgba(0,0,0,.5);
+                        -moz-transition: all 1s;
+                        -webkit-transition: all 1s;
+                        transition: all 1s;
+                    }
+
+                    &:hover:after {
+                        opacity: 1;
+                    }
+
+                    a {
+                        z-index: 50;
+
+                        &:focus {
+                            color: $mainColor;
+                        }
+                    }
+                }
+                
+                &.link_salons{
+                    position: relative;
+                    background: url(../img/body.jpg) center no-repeat;
+                    margin-left: 1px;
+                    margin-right: 1px;
+
+                    &:after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: 25;
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                        background: rgba(0,0,0,.5);
+                        -moz-transition: all 1s;
+                        -webkit-transition: all 1s;
+                        transition: all 1s;
+                    }
+
+                    &:hover:after {
+                        opacity: 1;
+                    }
+
+                    a {
+                        z-index: 50;
+
+                        &:focus {
+                            color: $mainColor;
+                        }
+                    }
+                }
+                
+                &.link_membres{
+                    position: relative;
+                    background: url(../img/team.jpg) center no-repeat;
+
+                    &:after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: 25;
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                        background: rgba(0,0,0,.5);
+                        -moz-transition: all 1s;
+                        -webkit-transition: all 1s;
+                        transition: all 1s;
+                    }
+
+                    &:hover:after {
+                        opacity: 1;
+                    }
+
+                    a {
+                        z-index: 50;
+
+                        &:focus {
+                            color: $mainColor;
+                        }
+                    }
+                }
+            } 
+        } 
+    }
+}
+
+@media only screen and (max-width : 600px) {
+        .menu--big {
+        
+            .menu__list {
+                flex-direction: column;
+
+                .link_salons {
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                    margin-top: 1px !important;
+                    margin-bottom: 1px !important;
+                }
+                
+                .menu__item {
+                    width: 100% !important;
+                    
+                    &:hover:after {
+                        opacity: 0 !important;
+                    }
+                }
+            }
+        }
+}

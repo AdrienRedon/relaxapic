@@ -2,7 +2,8 @@
 <html>
     <head>
         <title>Relaxapic {$title}</title>
-        <link rel="stylesheet" type="text/css" href="{WEBROOT}css/app.css">
+        <link rel="stylesheet" type="text/css" href="{WEBROOT}css/app.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="{WEBROOT}css/print.css" media="print">
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <link rel="icon" type="image/png" sizes="32x32" href="{WEBROOT}img/favicon-32x32.png">

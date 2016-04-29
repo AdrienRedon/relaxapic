@@ -17,7 +17,7 @@
     </div>
 
     <button class="cancel__button">Annuler</button>
-    <button type="submit" class="login__button">Se connecter</button>
+    <button type="submit" class="login__button submit__button">Se connecter</button>
     <p class="login__failed"></p>
 
 </form>

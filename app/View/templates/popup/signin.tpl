@@ -23,6 +23,6 @@
     </div>
 
     <button class="cancel__button">Annuler</button>
-    <button type="submit" class="signin__button">S'inscrire</button>
+    <button type="submit" class="signin__button submit__button">S'inscrire</button>
 
 </form>
