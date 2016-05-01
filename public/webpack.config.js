@@ -8,7 +8,7 @@ module.exports = {
     index: "./js/index.js",
     patho: "./js/patho.js",
     salons: "./js/salons.js",
-    membres: "./js/membres.js",
+    aPropos: "./js/aPropos.js",
   },
   output: {
     path: __dirname + "/js/dist",

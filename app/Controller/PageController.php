@@ -49,9 +49,9 @@ class PageController extends Controller
         $this->view->render('Page/salons');
     }
 
-    public function membres()
+    public function aPropos()
     {
         $user = $this->auth->user();
-        $this->view->render('Page/membres');
+        $this->view->render('Page/aPropos');
     }
 }

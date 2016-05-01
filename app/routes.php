@@ -13,7 +13,7 @@ $router->post('/logout', 'UserController@logout');
 
 $router->get('/pathologies', 'PageController@pathologies');
 $router->get('/salons', 'PageController@salons');
-$router->get('/membres', 'PageController@membres');
+$router->get('/a-propos', 'PageController@aPropos');
 
 $router->get('/getTypesPatho', 'TypePathoController@getTypesPatho');
 $router->get('/getListePatho/:id', 'TypePathoController@getListePatho');

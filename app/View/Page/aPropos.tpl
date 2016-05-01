@@ -1,11 +1,11 @@
-{include file="templates/header.tpl" size="small" title="Membres"}
+{include file="templates/header.tpl" size="small" title="A propos"}
 
 <div class="team-members-banner">
 </div>
 <div class="team-members-container">
 
     <h2 class="titre">
-            Membres
+            A propos
     </h2>
 
     <div class="team-members">
@@ -60,4 +60,4 @@
 
 
 
-{include file="templates/footer.tpl" js="membres"}
+{include file="templates/footer.tpl" js="aPropos"}
