@@ -1,7 +1,7 @@
 <!ELEMENT typePatho (name,pathos)>
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT pathos (patho+)>
-<!ELEMENT patho (meridien, symptomes)>
+<!ELEMENT patho (name, meridien, symptomes)>
 <!ELEMENT meridien (name, yinYang, element)>
 <!ELEMENT yinYang (#PCDATA)>
 <!ELEMENT element (#PCDATA)>
