@@ -50,6 +50,7 @@
                 padding-top: 2px;
                 min-width: 350px;
                 width: 70%;
+                margin-top: 10px;
 
                 a {
                     color: inherit;
@@ -101,11 +102,16 @@
 
                 .filter__dropdown {
                     position: absolute;
+                    right: 0;
                     width: 100%;
-                    margin-top: 1.8rem;
+                    margin-top: 1.7rem;
                     display: none;
                     z-index: 9;
-                    background-color: #fff;
+                    background-color: #fdfdfd;
+                    border-bottom: 4px solid $mainColor;
+                    @include shadow(1);
+                    color: #606060;
+                    font-size: 0.9em;
                 }
 
                 &.active {
@@ -144,6 +150,7 @@
             color: white;
             font-size: 1em;
             padding: 5px;
+            cursor: pointer;
         }
         
         button[type=submit]:hover {
