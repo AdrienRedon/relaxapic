@@ -4,7 +4,7 @@
         <div class="pathology__title">
             {$patho->desc}
         </div>
-        <a class="info" data-idp="{$patho->idP}">
+        <a class="info" href="#" data-idp="{$patho->idP}">
             <i class="icon icon-info-circled"></i>
         </a>
     </div>

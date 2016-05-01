@@ -47,6 +47,10 @@
                   transition-duration: .3s;
                 }
             }
+
+            .drop:focus, .drop:hover {
+                background-color: lighten($mainColor, 10%);
+            }
             
             &.active {
                 background-color: #07a0a3;

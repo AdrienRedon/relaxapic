@@ -8,7 +8,7 @@
             <div class="category__title">
                 {$typePatho->name}
             </div>
-            <a class="drop"><i class="icon icon-down-open"></i></a>
+            <a href="#" class="drop"><i class="icon icon-down-open"></i></a>
         </div>
         <ul class="pathologies__container"></ul>
     </div>
