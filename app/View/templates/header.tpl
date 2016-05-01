@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head lang="fr">
         <title>Relaxapic {$title}</title>
         <link rel="stylesheet" type="text/css" href="{WEBROOT}css/app.css" media="screen">
         <link rel="stylesheet" type="text/css" href="{WEBROOT}css/print.css" media="print">
@@ -26,7 +26,7 @@
                 <a id="logout__button" class="isLogged{if ! $logged} hidden{/if}" href="#">Se déconnecter</a>
             </div>
         </header>
-        <nav class="menu {if $size=="big"}menu--big{/if}">
+        <nav class="menu{if $size=="big"} menu--big{/if}">
             <ul class="menu__list">
                 <li class="menu__item link_accueil{if $title=="Accueil"} active{/if}"><a href="{WEBROOT}"> Accueil </a></li>
                 <li class="menu__item link_patho{if $title=="Pathologies"} active{/if}"><a href="{WEBROOT}pathologies"> Pathologies </a></li>

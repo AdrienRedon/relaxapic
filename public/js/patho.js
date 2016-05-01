@@ -1,3 +1,3 @@
-require('./scripts/popup_reload');
+require('./scripts/popupReload');
 require('./scripts/filters');
 require('./scripts/ajaxPatho');
