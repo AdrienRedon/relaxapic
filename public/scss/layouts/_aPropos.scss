@@ -1,4 +1,4 @@
-.team-members-banner {
+.apropos-banner {
     display: flex;
     align-items: center;
     margin-top: 0;
@@ -9,7 +9,7 @@
 
 }
 
-.team-members-container {
+.apropos-container {
     background-color: #f7f7f7;
     padding: 30px;
     
@@ -21,6 +21,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 30px;
     
         .team-member {
             display: inherit;
@@ -74,6 +75,40 @@
             }
         }
     }
+    
+    .architecture {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        max-width: 900px;
+        margin-bottom: 30px;
+    }
+    
+    .sources {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        max-width: 900px;
+        margin-bottom: 30px;
+        
+        .sources-list {
+            list-style-type: circle;
+            
+            .sources-lien {
+                color: $mainColor;
+                text-decoration: none;
+            }
+            
+            .sources-utilisation {
+                color: #606060;
+                font-style: italic;
+                margin-left: 10px;
+                font-size: 0.9em;
+            }
+        }
+    }
+    
+    
 }
 
 
