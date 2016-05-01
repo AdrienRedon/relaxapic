@@ -29,11 +29,11 @@ $loginPopup.on("submit", function(e) {
         $loginPopup.find(".password__errors").html('');
 
         // wrong login or password
-        if (data.logged && data.logged === false) {
+        if (data.logged !== undefined && data.logged === false) {
             $loginPopup.find('.login__failed').html('Les identifiants sont incorrects');
         }
         // correctly logged in
-        else if (data.logged && data.logged === true) {
+        else if (data.logged !== undefined && data.logged === true) {
             $loginPopup.addClass('hidden');
             $overlay.addClass('hidden');
             $('.isNotLogged').addClass('hidden');
