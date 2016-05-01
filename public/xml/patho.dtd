@@ -1,0 +1,10 @@
+<!ELEMENT typePatho (name,pathos)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT pathos (patho+)>
+<!ELEMENT patho (meridien, symptomes)>
+<!ELEMENT meridien (name, yinYang, element)>
+<!ELEMENT yinYang (#PCDATA)>
+<!ELEMENT element (#PCDATA)>
+<!ELEMENT symptomes (symptome+)>
+<!ELEMENT symptome (description)>
+<!ELEMENT description (#PCDATA)>
