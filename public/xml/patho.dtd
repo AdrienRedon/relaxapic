@@ -1,10 +1,11 @@
 <!ELEMENT typePatho (name,pathos)>
 <!ELEMENT name (#PCDATA)>
-<!ELEMENT pathos (patho+)>
+<!ELEMENT pathos (patho*)>
 <!ELEMENT patho (name, meridien, symptomes)>
 <!ELEMENT meridien (name, yinYang, element)>
 <!ELEMENT yinYang (#PCDATA)>
 <!ELEMENT element (#PCDATA)>
-<!ELEMENT symptomes (symptome+)>
+<!ELEMENT symptomes (symptome*)>
 <!ELEMENT symptome (description)>
+<!ATTLIST symptome type CDATA "aggravable">
 <!ELEMENT description (#PCDATA)>

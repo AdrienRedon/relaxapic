@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE typePatho SYSTEM "patho.dtd">
+<typePatho>
+    <name>Pathologies de méridien</name>
+    <pathos>
+        <patho>
+            <name> Méridien du poumon externe</name>
+            <meridien>
+                <name>Poumon</name>
+                <yinYang>Yin</yinYang>
+                <element>métal</element>
+            </meridien>
+            <symptomes>
+                <symptome>
+                    <description>Battement des ailes du nez</description>
+                </symptome>
+                <symptome>
+                    <description>Dessèchement des phanères</description>
+                </symptome>
+                <symptome>
+                    <description>Douleur lancinante au creux sus-claviculaire</description>
+                </symptome>
+                <symptome>
+                    <description>Pouls superficiel</description>
+                </symptome>
+                <symptome>
+                    <description>Symptômes thoraco-pulmonaires (toux continuelle, dyspnée, gonflement thoracique)</description>
+                </symptome>
+                <symptome type="aggravable">
+                    <description>Transpiration avec pollakiurie et diminution de l'appétit</description>
+                </symptome>
+                <symptome>
+                    <description>Vue floue dans les cas graves</description>
+                </symptome>
+            </symptomes>
+        </patho>
+    </pathos>
+</typePatho>
