@@ -55,13 +55,15 @@ $(function() {
             }
 
         });
+        return false;
     });
 
     /**
      * Get meridien & symptomes
      */
 
-    $("body").on("click", ".info", function() {
+    $("body").on("click", ".info", function(e) {
+        e.preventDefault();
         var $infoContainer = $(this).parent().parent().find('.pathology_info__container');
         var $meridienContainer  = $(this).parent().parent().find('.pathology_meridien_container');
         var $symptomeContainer = $(this).parent().parent().find('.pathology_symptoms_container');
