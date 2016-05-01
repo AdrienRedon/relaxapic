@@ -1,4 +1,4 @@
-<form class="signin__popup hidden" method="POST" action="{WEBROOT}signin">
+<form class="signin__popup hidden" method="POST" action="{WEBROOT}signin" aria-labelledby="signin__button" role="dialog">
     
     <div>
         <label for="signin_mail">

@@ -31,7 +31,11 @@
                 <li class="menu__item link_accueil{if $title=="Accueil"} active{/if}"><a href="{WEBROOT}"> Accueil </a></li>
                 <li class="menu__item link_patho{if $title=="Pathologies"} active{/if}"><a href="{WEBROOT}pathologies"> Pathologies </a></li>
                 <li class="menu__item link_salons{if $title=="Salons"} active{/if}"><a href="{WEBROOT}salons"> Salons </a></li>
+<<<<<<< Updated upstream
                 <li class="menu__item link_membres{if $title=="A propos"} active{/if}"><a href="{WEBROOT}a-propos"> A propos </a></li>
+=======
+                <li class="menu__item link_membres{if $title=="Membres"} active{/if}"><a href="{WEBROOT}membres"> À propos </a></li>
+>>>>>>> Stashed changes
             </ul>
         </nav>
 
