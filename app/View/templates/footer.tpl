@@ -16,7 +16,7 @@
                             <a href="{WEBROOT}salons">Salons</a>
                         </li>
                         <li>
-                            <a href="{WEBROOT}membres">Membres</a>
+                            <a href="{WEBROOT}a-propos">À propos</a>
                         </li>
                     </ul>
                 </nav>
