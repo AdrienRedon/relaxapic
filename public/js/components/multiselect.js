@@ -43,7 +43,6 @@ $.fn.multiselect = function() {
      */
     this.on("change", "input[type=checkbox]", function() {
         var $checkbox = $(this);
-        var $label = $checkbox.siblings('label');
         var html = '';
 
         // on ajoute si ce n'est pas déjà ajouté
@@ -53,7 +52,7 @@ $.fn.multiselect = function() {
         if (! exist.length) {
             selected.push({
                 id : $checkbox.val(), 
-                val : $label.html()
+                val : $checkbox.attr('data-name')
             });
         } else {
             selected = selected.filter(function(el) {

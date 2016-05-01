@@ -43,12 +43,11 @@ $.fn.select = function() {
      */
     this.on("change", "input[type=radio]", function() {
         var $checkbox = $(this);
-        var $label = $checkbox.siblings('label');
         var html = '';
 
         selected = {
             id : $checkbox.val(), 
-            val : $label.html()
+            val : $checkbox.attr('data-name')
         };
 
         if (selected) {
