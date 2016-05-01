@@ -17,7 +17,7 @@
             <div class="filter filterTypePatho">
                 <fieldset>
                     <a href="#" class="filter__toggle">
-                        <legend>Type de pathologie</legend>
+                        Type de pathologie
                     </a>
                     <div class="filter__dropdown">
                         {foreach from=$typesPatho item=typePatho}
@@ -30,7 +30,7 @@
             <div class="filter filterMeridiens">
                 <fieldset>
                     <a href="#" class="filter__toggle">
-                        <legend>Méridiens</legend>
+                        Méridiens
                     </a>
                     <div class="filter__dropdown">
                         {foreach from=$meridiens item=meridien}
@@ -44,7 +44,7 @@
             <div class="filter filterCaracteristiques">
                 <fieldset>
                     <a href="#" class="filter__toggle">
-                        <legend>Caractéristiques</legend>
+                        Caractéristiques
                     </a>
                     <div class="filter__dropdown">
                         <div class="filter__row"><label for="filter-carac-1"><input type="checkbox" name="caracteristiques" id="filter-carac-1" value="1" data-name="plein">plein</label></div>

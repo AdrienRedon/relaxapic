@@ -7,8 +7,7 @@ $.fn.select = function() {
     var selected;
     var $container = this;
     var $toggle = $container.find('.filter__toggle');
-    var $title = $container.find('legend');
-    var titleContent = $title.html();
+    var titleContent = $toggle.html();
 
     /**
      * Toggle Dropdown multiselect list
@@ -56,7 +55,7 @@ $.fn.select = function() {
             html = titleContent;
         }
 
-        $title.html(html);
+        $toggle.html(html);
     });
 
 // public       
