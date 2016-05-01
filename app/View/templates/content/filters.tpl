@@ -59,6 +59,8 @@
         </div>
 
         <button type="submit">Rechercher</button>
+        
+        <button type="reset" value="Reset" onClick="window.location.reload()">Vider</button>
     </form>
 
 </div>
