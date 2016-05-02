@@ -23,7 +23,7 @@
                 <nav class="footer__sitemap__others">
                     <ul>
                         <li>
-                            <a href="{WEBROOT}mentions-legales">Mentions légales</a>
+                            <a href="http://www.cpe.fr/">Mentions légales</a>
                         </li>
                         <li>
                             <a href="http://orteil.dashnet.org/cookieclicker/">Cookies</a>
