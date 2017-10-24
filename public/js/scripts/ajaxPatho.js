@@ -38,22 +38,16 @@ $(function() {
             url: url,
             method: 'get'
         }).done(function(response) {
-
             if ($title.hasClass('active')) {
-
                 $title.removeClass('active');
                 $liste.slideUp(300);
-
             } else {
-
                 $liste.hide();
                 $title.addClass('active');
-
                 $liste.html(response);
                 $liste.find('.pathology_info__container').hide();
                 $liste.slideDown(300);
             }
-
         });
         return false;
     });
@@ -74,21 +68,15 @@ $(function() {
             url: "getMeridienByPatho/" + $(this).attr('data-idp'),
             method: 'get',
         }).done(function(response) {
-
             if ($title.hasClass('active')) {
-
                 $title.removeClass('active');
                 $infoContainer.slideUp(300);
-
             } else {
-
                 $infoContainer.hide();
                 $title.addClass('active');
-
                 $meridienContainer.html(response);
                 $infoContainer.slideDown(300);
             }
-
         });
 
         // Symptomes
@@ -98,7 +86,6 @@ $(function() {
         }).done(function(response) {
             $symptomeContainer.html(response);
         });
-
 
     });
 });
