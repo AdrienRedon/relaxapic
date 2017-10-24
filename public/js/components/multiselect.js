@@ -24,11 +24,10 @@ $.fn.multiselect = function() {
     });
 
     this.on("focus", "input[type=checkbox]", function() {
-        
-            $('.filter').each(function() {
-                $(this).removeClass('active');
-            });
-            $container.addClass('active');
+        $('.filter').each(function() {
+            $(this).removeClass('active');
+        });
+        $container.addClass('active');
     });
     
     $('body').on("keyup", function(e) {
